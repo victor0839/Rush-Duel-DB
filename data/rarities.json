@@ -1,0 +1,191 @@
+[
+	{
+		"order": 1,
+		"name": {
+			"en": "Common",
+			"es": "Común"
+		},
+		"abbreviation": "C",
+		"color": "#9c9c9c"
+	},
+	{
+		"order": 2,
+		"name": {
+			"en": "Rare",
+			"es": "Rara"
+		},
+		"abbreviation": "R",
+		"color": "#81c67f"
+	},
+	{
+		"order": 3,
+		"name": {
+			"en": "Super Rare",
+			"es": "Súper Rara"
+		},
+		"abbreviation": "SR",
+		"color": "#6aa1cf"
+	},
+	{
+		"order": 4,
+		"name": {
+			"en": "Ultra Rare",
+			"es": "Ultra Rara"
+		},
+		"abbreviation": "UR",
+		"color": "#cfa15e"
+	},
+	{
+		"order": 4.1,
+		"name": {
+			"en": "Ultra Rare (Special Red Version)",
+			"es": "Ultra Rara (Versión Especial Roja)"
+		},
+		"abbreviation": "UR+R",
+		"color": "#ff5757"
+	},
+	{
+		"order": 5,
+		"name": {
+			"en": "Parallel Rare",
+			"es": "Rara Paralela"
+		},
+		"abbreviation": "P",
+		"color": "#957fd5"
+	},
+	{
+		"order": 5.1,
+		"name": {
+			"en": "Super Parallel Rare",
+			"es": "Súper Rara Paralela"
+		},
+		"abbreviation": "P+SR",
+		"color": "#957fd5"
+	},
+	{
+		"order": 5.2,
+		"name": {
+			"en": "Ultra Parallel Rare",
+			"es": "Ultra Rara Paralela"
+		},
+		"abbreviation": "P+UR",
+		"color": "#957fd5"
+	},
+	{
+		"order": 6,
+		"name": {
+			"en": "Rush Rare",
+			"es": "Rush Rare"
+		},
+		"abbreviation": "RR",
+		"color": "#ff5757"
+	},
+	{
+		"order": 6.1,
+		"name": {
+			"en": "Rush Rare (Special Red Version)",
+			"es": "Rush Rare (Versión Especial Roja)"
+		},
+		"abbreviation": "RR+R",
+		"color": "#ff5757"
+	},
+	{
+		"order": 7,
+		"name": {
+			"en": "Secret Rare",
+			"es": "Rara Secreta"
+		},
+		"abbreviation": "SE",
+		"color": "#e86d6d"
+	},
+	{
+		"order": 7.1,
+		"name": {
+			"en": "Secret Rare (Special Blue Version)",
+			"es": "Rara Secreta (Versión Especial Azul)"
+		},
+		"abbreviation": "SE+Bl",
+		"color": "#e86d6d"
+	},
+	{
+		"order": 7.2,
+		"name": {
+			"en": "Secret Rare (Special Red Version)",
+			"es": "Rara Secreta (Versión Especial Roja)"
+		},
+		"abbreviation": "SE+R",
+		"color": "#e86d6d"
+	},
+	{
+		"order": 8,
+		"name": {
+			"en": "Gold Rush Rare",
+			"es": "Gold Rush Rare"
+		},
+		"abbreviation": "GRR",
+		"color": "#adae29"
+	},
+	{
+		"order": 9,
+		"name": {
+			"en": "Over-Rush Rare",
+			"es": "Over-Rush Rare"
+		},
+		"abbreviation": "ORR",
+		"color": "#81d1d2"
+	},
+	{
+		"order": 9.1,
+		"name": {
+			"en": "Over-Rush Rare (Premium Black Version)",
+			"es": "Over-Rush Rare (Versión Negra Premium)"
+		},
+		"abbreviation": "ORR+B",
+		"color": "#81d1d2"
+	},
+	{
+		"order": 10,
+		"name": {
+			"en": "Full Over-Rush Rare",
+			"es": "Full Over-Rush Rare"
+		},
+		"abbreviation": "FORR",
+		"color": "#81d1d2"
+	},
+	{
+		"order": 100,
+		"name": {
+			"en": "Normal (Duel Links)",
+			"es": "Normal (Duel Links)"
+		},
+		"abbreviation": "N+DL",
+		"color": "#b4c8cb"
+	},
+	{
+		"order": 101,
+		"name": {
+			"en": "Rare (Duel Links)",
+			"es": "Rara (Duel Links)"
+		},
+		"abbreviation": "R+DL",
+		"color": "#2855ed"
+	},
+	{
+		"order": 102,
+		"name": {
+			"en": "Super Rare (Duel Links)",
+			"es": "Súper Rara (Duel Links)"
+		},
+		"abbreviation": "SR+DL",
+		"color": "#f8cd00"
+	},
+	{
+		"order": 103,
+		"name": {
+			"en": "Ultra Rare (Duel Links)",
+			"es": "Ultra Rara (Duel Links)"
+		},
+		"abbreviation": "UR+DL",
+		"color": "linear-gradient(140deg, #df3bfe, #7d67fd, #2dbcfb, #22dff6, #22dff6, #00ecd6, #04e483, #02c44c)"
+	}
+]

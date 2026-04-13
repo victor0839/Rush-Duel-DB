@@ -101,6 +101,7 @@
     },
     "searchCategory": {
         "AntiSupports": "Anti Soporte a",
+        "Conditions": "Condiciones",
         "ContinuousEffects": "Efectos Continuos",
         "Effects": "Efectos",
         "EquipsTo": "Se Equipa a",
@@ -112,20 +113,27 @@
         "Properties": "Misceláneos",
         "Requeriments": "Requisitos",
         "Series": "Series",
-        "Supports": "Soporte a"
+        "Supports": "Soporte a",
+        "TreatedAs": "Se trata como"
     },
     "series": {
         "BlackLusterSoldier": "Soldado del Brillo Negro",
         "BlueEyes": "Ojos Azules",
         "DarkMagician": "Mago Oscuro",
+        "Dolphin": "Delfín",
+        "Gaia": "Gaia",
         "Galactica": "Sideral",
         "Metarion": "Metarión",
         "Monarch": "Monarca",
-        "PrincessCosmos": "Princesa del Cosmos",
+        "OuTerverSe": "OuTerverSe",
+        "PrincessCosmos": "Princess Cosmos",
         "RedEyes": "Ojos Rojos",
         "SevensRoad": "Camino Sevens",
+        "ShamanBandit": "Shaman Bandit",
         "StrikeDragon": "Dragon Ataque",
         "Tron": "Tron",
+        "Umi": "Umi",
+        "Voidvelg": "Vaciovelg",
         "WoolyWonderland": "País de Maravillas Lanudas"
     },
     "setRegion": {
@@ -133,6 +141,9 @@
         "dl": "Duel Links",
         "jp": "Japón",
         "kr": "Corea"
+    },
+    "specialId": {
+        "4000": "OuTerverSe"
     },
     "status": {
         "Forbidden": "Prohibida",
@@ -167,6 +178,7 @@
         "Attributes": "Atributos",
         "CardLanguage": "Idioma de las cartas",
         "CardList": "Lista de cartas",
+        "CardTextNotFound": "Texto no disponible.",
         "CardNotFound": "Carta no encontrada.",
         "CardsCategories": "Categorias de Monstruo/Mágica/Trampa",
         "CardType": "Tipo de Carta",

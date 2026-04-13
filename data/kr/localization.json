@@ -1,0 +1,62 @@
+{
+	"attribute": {
+		"DARK": "어둠",
+		"EARTH": "땅",
+		"FIRE": "화염",
+		"LIGHT": "빛",
+		"WATER": "물",
+		"WIND": "바람"
+	},
+    "cardType": {
+        "Monster": "몬스터 카드",
+        "Spell": "마법 카드",
+        "Trap": "함정 카드"
+    },
+    "cardTypeShort": {
+        "Monster": "몬스터",
+        "Spell": "마법",
+        "Trap": "함정"
+    },
+	"race": {
+		"Aqua": "물",
+		"Beast": "야수",
+		"BeastWarrior": "야수전사",
+		"CelestialWarrior": "천계전사",
+		"Cyberse": "사이버스",
+		"Cyborg": "사이보그",
+		"Dinosaur": "공룡",
+		"Dragon": "드래곤",
+		"Fairy": "드래곤",
+		"Fiend": "악마",
+		"Fish": "어류",
+		"Galaxy": "갤럭시",
+		"HighDragon": "하이드래곤",
+		"Insect": "곤충",
+		"Machine": "기계",
+		"MagicalKnight": "마도 기사",
+		"OmegaPsychic": "오메가사이킥",
+		"Plant": "식물",
+		"Psychic": "사이킥",
+		"Pyro": "화염",
+		"Reptile": "파충류",
+		"Rock": "암석",
+		"SeaSerpent": "해룡",
+		"Spellcaster": "마법사",
+		"Thunder": "번개",
+		"Warrior": "전사",
+		"WingedBeast": "비행야수",
+		"Wyrm": "환룡",
+		"Zombie": "언데드"
+	},
+	"type": {
+		"Effect": "효과",
+		"Equip": "장착",
+		"Field": "필드",
+		"Fusion": "퓨전",
+		"Legend": "레전드",
+		"Maximum": "맥시멈",
+        "NonEffect": "효과 몬스터 이외의",
+		"Normal": "일반",
+		"Ritual": "리추얼"
+	}
+}

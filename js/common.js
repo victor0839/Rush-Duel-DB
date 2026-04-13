@@ -1,5 +1,5 @@
-const languages = ['Es', 'En'];
-const cardLanguages = {'En': 'English', 'Es': 'Spanish', 'Jp': 'Japanese', 'Kr': 'Korean'};
+const languages = ['es', 'en'];
+const cardLanguages = {'en': 'English', 'es': 'Spanish', 'jp': 'Japanese', 'kr': 'Korean'};
 const setRegions = ['jp', 'kr', 'dl'];
 const moduleList = ['home', 'cards'];
 const cardSpecialRarities = ['ORR', 'ORR+B'];
@@ -44,6 +44,12 @@ const searchCategories = [
     'sort': false,
 },
 {
+    'short': 'treated-as',
+    'name': 'TreatedAs',
+    'type': 1,
+    'sort': false,
+},
+{
     'short': 'equips-to',
     'name': 'EquipsTo',
     'type': 1,
@@ -66,6 +72,12 @@ const searchCategories = [
     'name': 'Series',
     'type': 3,
     'sort': true,
+},
+{
+    'short': 'conditions',
+    'name': 'Conditions',
+    'type': 2,
+    'sort': false,
 },
 {
     'short': 'requeriments',
@@ -188,10 +200,10 @@ if (localStorage.getItem('language') && languages.includes(localStorage.getItem(
 
     switch (browserLang.split('-')[0]) {
         case 'es':
-            userLang = 'Es';
+            userLang = 'es';
             break;
         default:
-            userLang = 'En';
+            userLang = 'en';
             break;
     }
 }
@@ -203,10 +215,10 @@ if (localStorage.getItem('cardLanguage')) {
 
     switch (browserLang.split('-')[0]) {
         case 'es':
-            cardLang = 'Es';
+            cardLang = 'es';
             break;
         default:
-            cardLang = 'En';
+            cardLang = 'en';
             break;
     }
 }
@@ -218,28 +230,33 @@ if (localStorage.getItem('region')) {
 }
 
 let data = {}
-let json_list = getLanguageJSONList(userLang.toLowerCase());
+let json_localization_list = getLocalizationJSONList(userLang, cardLang);
 
-function getLanguageJSONList(lang) {
-    return {
-        cardsMain: getCacheResource(`./data/${lang}/cards.min.json`),
-        localization: getCacheResource(`./data/${lang}/localization.min.json`),
-        effects: getCacheResource(`./data/${lang}/effects.min.json`),
-        rarities: getCacheResource(`./data/${lang}/rarities.min.json`),
-        sets: getCacheResource(`./data/${lang}/sets.min.json`)
+function getLocalizationJSONList(lang, additionalLang) {
+    if (lang == additionalLang) {
+        return {
+            [`localization_${lang}`]: getCacheResource(`./data/${lang}/localization.min.json`),
+        }
+    } else {
+        return {
+            [`localization_${lang}`]: getCacheResource(`./data/${lang}/localization.min.json`),
+            [`localization_${additionalLang}`]: getCacheResource(`./data/${additionalLang}/localization.min.json`),
+        }
     }
 }
 
-let json_card_list = getCardJSONList(cardLang.toLowerCase());
+let json_data_list = getDataJSONList();
 
-function getCardJSONList(lang) {
+function getDataJSONList() {
     return {
-        cards: getCacheResource(`./data/${lang}/cards.min.json`),
-        cardInfo: getCacheResource(`./data/${lang}/card_info.min.json`),
+        cards: getCacheResource(`./data/cards.min.json`),
+        effects: getCacheResource(`./data/effects.min.json`),
+        rarities: getCacheResource(`./data/rarities.min.json`),
+        sets: getCacheResource(`./data/sets.min.json`),
     }
 }
 
-let loadPromise = loadJSON(Object.assign(json_list, json_card_list), result => {
+let loadPromise = loadJSON(Object.assign(json_localization_list, json_data_list), result => {
     data = result;
 });
 
@@ -274,8 +291,8 @@ function capitalizeFirstLetter(string) {
 }
 
 function getLocalizedCardString(group, index) {
-    if (data.cardInfo.hasOwnProperty(group) && data.cardInfo[group].hasOwnProperty(index)) {
-        return data.cardInfo[group][index];
+    if (data[`localization_${cardLang}`].hasOwnProperty(group) && data[`localization_${cardLang}`][group].hasOwnProperty(index)) {
+        return data[`localization_${cardLang}`][group][index];
     } else {
         console.log(`Card string not found for "${group}, ${index}"`);
         return `${group}_${index}`;
@@ -286,7 +303,11 @@ function getLocalizedCardEffect(name) {
     var action = data.effects.find((c) => c.abbreviation == name);
 
     if (action !== undefined) {
-        return action.name;
+        if (userLang in action.name) {
+            return action.name[userLang];
+        } else {
+            return action.name.en;
+        }
     } else {
         console.log(`Card effect "${name}" not found`);
         return name;
@@ -294,8 +315,8 @@ function getLocalizedCardEffect(name) {
 }
 
 function getLocalizedString(group, index) {
-    if (data.localization.hasOwnProperty(group) && data.localization[group].hasOwnProperty(index)) {
-        return data.localization[group][index];
+    if (data[`localization_${userLang}`].hasOwnProperty(group) && data[`localization_${userLang}`][group].hasOwnProperty(index)) {
+        return data[`localization_${userLang}`][group][index];
     } else {
         console.log(`Localization not found for "${group}, ${index}"`);
         return `${group}_${index}`;
@@ -306,15 +327,45 @@ function getLocalizedRarity(name) {
     var rarity = data.rarities.find((c) => c.abbreviation == name);
 
     if (rarity !== undefined) {
-        return rarity.name;
+        if (userLang in rarity.name) {
+            return rarity.name[userLang];
+        } else {
+            return rarity.name.en;
+        }
     } else {
         console.log(`Rarity "${name}" not found`);
         return name;
     }
 }
 
+function getCardName(id = 0, lang = cardLang, checkReleaseStatus = true) {
+    if (checkReleaseStatus) {
+        var cardData = findCardIsReleased(id);
+    } else {
+        var cardData = find(cardList, 'id', id);
+    }
+
+    if (cardData) {
+        return `"${lang in cardData.name ? cardData.name[lang] : cardData.name.en}"`;
+    }
+
+    return null;
+}
+
+function getSpecialCardName(id = 0) {
+    var cardName = null;
+
+    if (data[`localization_${cardLang}`].hasOwnProperty('specialId')) {
+        cardName = `"${getLocalizedCardString('specialId', id)}"`;
+    } else if (data[`localization_${userLang}`].hasOwnProperty('specialId')) {
+        cardName = `"${getLocalizedString('specialId', id)}"`;
+    }
+
+    return cardName;
+}
+
 function findCardIsReleased(id) {
-    var newCard = find(cardMainList, 'id', id);
+    var newCard = find(cardList, 'id', id);
 
     if (newCard != null && regionName != 'all') {
         if (!newCard.releaseDate[regionName]) {
@@ -348,17 +399,21 @@ function indexOfArrayObject(array, key, value) {
     return -1;
 }
 
-$.when($.ready, loadPromise).then(function() {
-    generateSortedMainCardsList();
-    generateSortedCardsList();
+var specialArtworks = {};
 
+$.when($.ready, loadPromise).then(function() {
+    generateSortedCardsList();
     generateCardSearchFilters();
 
-    $('#navbar-language-selector span').text($(`#navbar-language-selector-${userLang.toLowerCase()}`).text());
-    $(`#navbar-language-selector-${userLang.toLowerCase()}`).addClass('active');
+    cardSpecialRarities.forEach(rarity => {
+        specialArtworks[rarity] = [];
+    });
+
+    $('#navbar-language-selector span').text($(`#navbar-language-selector-${userLang}`).text());
+    $(`#navbar-language-selector-${userLang}`).addClass('active');
 
     $('#navbar-card-language-selector span').text(getLocalizedString('language', cardLanguages[cardLang]));
-    $(`#navbar-card-language-selector-${cardLang.toLowerCase()}`).addClass('active');
+    $(`#navbar-card-language-selector-${cardLang}`).addClass('active');
 
     $('#navbar-region-selector span').text(getLocalizedString('setRegion', regionName));
     $(`#navbar-region-selector-${regionName}`).addClass('active');
@@ -368,20 +423,12 @@ $.when($.ready, loadPromise).then(function() {
 });
 
 var cardList;
-var cardMainList;
 
 function generateSortedCardsList() {
-    cardList = [...data.cards].sort((a, b) => {
-        var textA = a.name.toUpperCase();
-        var textB = b.name.toUpperCase();
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-    });
-}
+    cardList = JSON.parse(JSON.stringify(data.cards)).sort((a, b) => {
+        var textA = cardLang in a.name ? a.name[cardLang].toUpperCase() : a.name.en.toUpperCase();
+        var textB = cardLang in b.name ? b.name[cardLang].toUpperCase() : b.name.en.toUpperCase();
 
-function generateSortedMainCardsList() {
-    cardMainList = [...data.cardsMain].sort((a, b) => {
-        var textA = a.name.toUpperCase();
-        var textB = b.name.toUpperCase();
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     });
 }
@@ -755,7 +802,7 @@ function loadModule(moduleName, id = null) {
 
             generateStatusBadge('#card-legend-status-badge', 'legend');
 
-            $(`#locale-${cardLang.toLowerCase()}`).addClass('active');
+            $(`#locale-${cardLang}`).addClass('active');
 
             //add set lists
             if (regionName == "all") {
@@ -828,7 +875,7 @@ function loadModule(moduleName, id = null) {
 }
 
 function generateLatestCards(maxCardCount = 8) {
-    var homeCards = [...data.cards].sort((a, b) => (b.id - a.id));
+    var homeCards = JSON.parse(JSON.stringify(data.cards)).sort((a, b) => (b.id - a.id));
 
     if (regionName == 'all') {
         homeCards.sort((a,b) => new Date(b.preReleaseDate || b.releaseDate.jp).getTime() - new Date(a.preReleaseDate || a.releaseDate.jp).getTime());
@@ -874,7 +921,7 @@ function generateLatestCards(maxCardCount = 8) {
 }
 
 function generateRandomCards(maxCardCount = 8) {
-    var randomCards = [...data.cards].sort(() => Math.random()-0.5);
+    var randomCards = JSON.parse(JSON.stringify(data.cards)).sort(() => Math.random()-0.5);
     var cardCount = 0;
     var innerHtml = '';
 
@@ -930,6 +977,8 @@ function generateCardImage(card, rarities = [], showRarityBadge = true) {
             }
         }
 
+        var cardName = cardLang in card.name ? card.name[cardLang] : card.name.en;
+
         if (showRarityBadge && rarities.length) {
             var raritiesHtml = '';
 
@@ -937,9 +986,9 @@ function generateCardImage(card, rarities = [], showRarityBadge = true) {
                 raritiesHtml += `<div class="card-image-rarities text-center">${getRarityBadge(rarity)}</div>`;
             });
 
-            cardImage = `<div class="card-image" title="${card.name}" style="background-image: url('images/cards/${cardImage}')" onclick="loadCard(${card.id})"><div class="d-flex flex-column flex-wrap justify-content-end align-items-end">${raritiesHtml}</div></div>`
+            cardImage = `<div class="card-image" title="${cardName}" style="background-image: url('images/cards/${cardImage}')" onclick="loadCard(${card.id})"><div class="d-flex flex-column flex-wrap justify-content-end align-items-end">${raritiesHtml}</div></div>`
         } else if (cardImage) {
-            cardImage = `<img class="card-image" title="${card.name}" src="images/cards/${cardImage}" onclick="loadCard(${card.id})">`
+            cardImage = `<img class="card-image" title="${cardName}" src="images/cards/${cardImage}" onclick="loadCard(${card.id})">`
         }
     }
 
@@ -1550,12 +1599,24 @@ function checkFilters(card, filterList, buttonFilterList, textFilterList, select
             var searchedID = parseInt(textFilterList.search.split('ID:')[1]);
 
             if (!isNaN(searchedID)) {
-                if (card.id == searchedID || ('changesNameTo' in card && card.changesNameTo.includes(searchedID))) {
+                if (card.id == searchedID || ('treatedAs' in card && card.treatedAs.findIndex((a) => a.id == searchedID) >= 0)) {
                     matchedText = true;
                 }
             }
-        } else if (card.name.toLowerCase().includes(textFilterList.search.toLowerCase()) || card.cardText.toLowerCase().includes(textFilterList.search.toLowerCase())) {
-            matchedText = true;
+        } else if (cardLang in card.name || cardLang in card.cardText) {
+            if (cardLang in card.name && card.name[cardLang].toLowerCase().includes(textFilterList.search.toLowerCase())) {
+                matchedText = true;
+            } else if (cardLang != 'en' && card.name.en.toLowerCase().includes(textFilterList.search.toLowerCase())) {
+                matchedText = true;
+            }
+
+            if (!matchedText && cardLang in card.cardText) {
+                if ('official' in card.cardText[cardLang] && card.cardText[cardLang].official.toLowerCase().includes(textFilterList.search.toLowerCase())) {
+                    matchedText = true;
+                } else if ('translated' in card.cardText[cardLang] && card.cardText[cardLang].translated.toLowerCase().includes(textFilterList.search.toLowerCase())) {
+                    matchedText = true;
+                }
+            }
         }
     }
 
@@ -1609,6 +1670,8 @@ function loadCardSearchList(updateSortFilter = false, resetPaginator = true) {
     //get all aproppiate cards
     $.each(cardList, function (key, card) {
         if (regionName != 'all' && (!card.releaseDate.hasOwnProperty(regionName) || !card.releaseDate[regionName])) {
+            return;
+        } else if (!(cardLang in card.cardText)) {
             return;
         }
 
@@ -1686,9 +1749,16 @@ function loadCardSearchList(updateSortFilter = false, resetPaginator = true) {
                 default:
                     if (searchOptions['sortDir']) {
                         searchedCards.sort(function(a, b) {
-                            var textA = a.name.toUpperCase();
-                            var textB = b.name.toUpperCase();
+                            var textA = cardLang in a.name ? a.name[cardLang].toUpperCase() : a.name.en.toUpperCase();
+                            var textB = cardLang in b.name ? b.name[cardLang].toUpperCase() : b.name.en.toUpperCase();
                             return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
+                        });
+                    } else {
+                        searchedCards.sort((a, b) => {
+                            var textA = cardLang in a.name ? a.name[cardLang].toUpperCase() : a.name.en.toUpperCase();
+                            var textB = cardLang in b.name ? b.name[cardLang].toUpperCase() : b.name.en.toUpperCase();
+
+                            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
                         });
                     }
                     break;
@@ -1864,11 +1934,30 @@ function generateSearchedCard(card, rarities = []) {
             cardTypes = `<div class="d-flex align-items-center ps-1"><img src="images/icons/${card.type.toLowerCase()}.png" style="width: 20px; height: 20px;"><span class="ms-1">${getLocalizedCardString('type', card.type)}</span></div>`;
         }
 
-        cardData += `<div class="d-flex align-items-center pe-1"><img src="images/icons/${card.cardType.toLowerCase()}.png" style="width: 20px; height: 20px;"><span class="ms-1">${getLocalizedCardString('cardType', card.cardType)}</span></div>${cardTypes}`;
+        cardData += `<div class="d-flex align-items-center pe-1"><img src="images/icons/${card.cardType.toLowerCase()}.png" style="width: 20px; height: 20px;"><span class="ms-1">${getLocalizedCardString('cardTypeShort', card.cardType)}</span></div>${cardTypes}`;
+    }
+
+    if (cardLang in card.cardText) {
+        var cardText = 'official' in card.cardText[cardLang] ? card.cardText[cardLang].official.replace(/\n/g, '<br>') : card.cardText[cardLang].translated.replace(/\n/g, '<br>');
+
+        //replace ids with the card name
+        const cardIdRegex = /<id:(\d+)>/g;
+
+        cardText = cardText.replace(cardIdRegex, function(match, id) {
+            var matchedText = getCardName(id, cardLang, false);
+
+            if (matchedText == null) {
+                matchedText = getSpecialCardName(id);
+            }
+
+            return matchedText;
+        });
+    } else {
+        var cardText = getLocalizedString('ui', 'CardTextNotFound');
     }
 
     //description
-    cardData += `</div><div class="card-item-desc">${card.cardText.replace(/\n/g, '<br>')}</div>`;
+    cardData += `</div><div class="card-item-desc">${cardText}</div>`;
 
     var cardRarities = '';
 
@@ -1882,7 +1971,9 @@ function generateSearchedCard(card, rarities = []) {
         cardRarities = `<div class="d-flex justify-content-end py-1 w-100">${raritiesIcons}</div>`;
     }
 
-    return `<div class="card-result-item d-flex flex-wrap align-items-start py-1 px-2" onclick="loadCard(${card.id})"><div class="card-image p-2"><img src="images/cards/${cardImage}"></div><div class="card-item-info d-flex flex-column"><div class="card-item-name py-1"><span>${card.name}${legendBadge}</span></div><div class="card-item-data d-flex flex-wrap flex-md-no-wrap py-1">${cardData}</div></div>${cardRarities}`;
+    var cardName = cardLang in card.name ? card.name[cardLang] : card.name.en;
+
+    return `<div class="card-result-item d-flex flex-wrap align-items-start py-1 px-2" onclick="loadCard(${card.id})"><div class="card-image p-2"><img src="images/cards/${cardImage}"></div><div class="card-item-info d-flex flex-column"><div class="card-item-name py-1"><span>${cardName}${legendBadge}</span></div><div class="card-item-data d-flex flex-wrap flex-md-no-wrap py-1">${cardData}</div></div>${cardRarities}`;
 }
 
 function cardSearchPagination(total = 1) {
@@ -1995,10 +2086,9 @@ let currentCard;
 
 function loadCard(id) {
     if (selectedModule == 'cards') {
-        currentCard = find(cardMainList, 'id', id);
-        cardTranslation = find(cardList, 'id', id);
+        currentCard = find(cardList, 'id', id);
 
-        if (!currentCard && !cardTranslation) {
+        if (currentCard == null) {
             $('#missing-card').show();
             $('#card-data').hide();
             $('#card-categories').hide();
@@ -2007,21 +2097,15 @@ function loadCard(id) {
             resetCardData();
             resetCardRelatedInfo();
             return;
-        } else if (currentCard && !cardTranslation) {
-            $('#missing-card').show();
-            $('#card-data').hide();
         } else {
-            renderCardData();
             $('#missing-card').hide();
             $('#card-data').show();
+
+            renderCardData();
         }
 
         $('#card-categories').show();
         $('#card-sets-list').show();
-
-        if (!currentCard) {
-            currentCard = find(cardList, 'id', id);
-        }
 
         renderCardRelatedInfo();
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -2078,19 +2162,22 @@ function renderCardData() {
     resetCardData();
 
     //edit card name
-    $('#card-name').text(cardTranslation.name);
+    var cardName = cardLang in currentCard.name ? currentCard.name[cardLang] : currentCard.name.en;
+
+    $('#card-name').text(cardName);
+
+    cardSpecialRarities.forEach(rarity => {
+        specialArtworks[rarity].length = 0;
+    });
 
     //add card artworks
-    var orrImages = [];
-    var orrBImages = [];
-
-    $.each(cardTranslation.artworks, function(key, artwork) {
+    $.each(currentCard.artworks, function(key, artwork) {
         //add normal artwork
         if (artwork.normal) {
             let image = '';
 
             if (typeof artwork.normal === 'boolean') {
-                image = `${cardTranslation.id}_${key}.webp`;
+                image = `${currentCard.id}_${key}.webp`;
             } else {
                 image = artwork.normal;
             }
@@ -2098,33 +2185,27 @@ function renderCardData() {
             $('#card-artworks-thumbnails').append(`<img class="card-thumbnail" src="images/cards/${image}">`);
         }
 
-        //add ORR artwork
-        if ('ORR' in artwork && artwork.ORR) {
-            if (typeof artwork.ORR === 'boolean') {
-                orrImages.push(`${cardTranslation.id}_${key}_ORR.webp`);
-            } else {
-                orrImages.push(artwork.ORR);
+        //add special artworks
+        cardSpecialRarities.forEach(rarity => {
+            if (rarity in artwork && artwork[rarity]) {
+                if (typeof artwork[rarity] === 'boolean') {
+                    specialArtworks[rarity].push(`${currentCard.id}_${key}_${rarity}.webp`);
+                } else {
+                    specialArtworks[rarity].push(artwork[rarity]);
+                }
             }
+        });
+    });
+
+    cardSpecialRarities.forEach(rarity => {
+        if (rarity in specialArtworks && specialArtworks[rarity].length > 0) {
+            specialArtworks[rarity].forEach(image => {
+                $('#card-artworks-thumbnails').append(`<img class="card-thumbnail" src="images/cards/${image}">`);
+            });
         }
-
-        if ('ORR+B' in artwork && artwork['ORR+B']) {
-            if (typeof artwork['ORR+B'] === 'boolean') {
-                orrBImages.push(`${cardTranslation.id}_${key}_ORR+B.webp`);
-            } else {
-                orrBImages.push(artwork.ORR);
-            }
-        }
     });
 
-    orrImages.forEach(image => {
-        $('#card-artworks-thumbnails').append(`<img class="card-thumbnail" src="images/cards/${image}">`);
-    });
-
-    orrBImages.forEach(image => {
-        $('#card-artworks-thumbnails').append(`<img class="card-thumbnail" src="images/cards/${image}">`);
-    });
-
-    if (cardTranslation.artworks.length) {
+    if (currentCard.artworks.length) {
         $('#card-artwork-main').attr('src', $('#card-artworks-thumbnails :first-child').attr('src'));
         $('#card-artworks-thumbnails :first-child').addClass('active');
     }
@@ -2141,42 +2222,62 @@ function renderCardData() {
     });
 
     //show legend badge
-    if ('properties' in cardTranslation && cardTranslation.properties.includes('LegendCard')) {
+    if ('properties' in currentCard && currentCard.properties.includes('LegendCard')) {
         $('#card-legend-status-badge').show();
     } else {
         $('#card-legend-status-badge').hide();
     }
 
-    $('#card-main-type-text').text(getLocalizedCardString('cardType', cardTranslation.cardType));
-    $('#card-text').html(cardTranslation.cardText.replace(/\n/g, '<br>'));
+    $('#card-main-type-text').text(getLocalizedCardString('cardType', currentCard.cardType));
 
-    if (cardTranslation.cardType.toLowerCase() == 'monster') {
+    if (cardLang in currentCard.cardText) {
+        var cardText = 'official' in currentCard.cardText[cardLang] ? currentCard.cardText[cardLang].official.replace(/\n/g, '<br>') : currentCard.cardText[cardLang].translated.replace(/\n/g, '<br>');
+
+        //replace ids with the card name
+        const cardIdRegex = /<id:(\d+)>/g;
+
+        cardText = cardText.replace(cardIdRegex, function(match, id) {
+            var matchedText = getCardName(id, cardLang, false);
+
+            if (matchedText == null) {
+                matchedText = getSpecialCardName(id);
+            }
+
+            return matchedText;
+        });
+    } else {
+        var cardText = getLocalizedString('ui', 'CardTextNotFound');
+    }
+
+    $('#card-text').html(cardText);
+
+    if (currentCard.cardType.toLowerCase() == 'monster') {
         $('#card-main-type-icon').hide();
         $('#card-spell-trap-subtype').hide();
         $('#card-attribute').show();
         $('#card-monster-types').show();
         $('#card-atk-def').show();
 
-        $('#card-attribute-icon').attr('src', `images/icons/${cardTranslation.attribute.toLowerCase()}.png`);
-        $('#card-attribute-text').text(getLocalizedCardString('attribute', cardTranslation.attribute));
+        $('#card-attribute-icon').attr('src', `images/icons/${currentCard.attribute.toLowerCase()}.png`);
+        $('#card-attribute-text').text(getLocalizedCardString('attribute', currentCard.attribute));
 
-        $('#card-level-text').text(cardTranslation.level);
+        $('#card-level-text').text(currentCard.level);
 
-        $('#card-race-text').text(getLocalizedCardString('race', cardTranslation.race));
-        $('#card-type-text').text(getLocalizedCardString('type', cardTranslation.type));
-        $('#card-atk-text').text(cardTranslation.atk);
-        $('#card-def-text').text(cardTranslation.def);
+        $('#card-race-text').text(getLocalizedCardString('race', currentCard.race));
+        $('#card-type-text').text(getLocalizedCardString('type', currentCard.type));
+        $('#card-atk-text').text(currentCard.atk);
+        $('#card-def-text').text(currentCard.def);
 
-        if ('subtype' in cardTranslation && cardTranslation.subtype) {
+        if ('subtype' in currentCard && currentCard.subtype) {
             $('#card-subtype-text').show();
-            $('#card-subtype-text').text(getLocalizedCardString('type', cardTranslation.subtype));
+            $('#card-subtype-text').text(getLocalizedCardString('type', currentCard.subtype));
         } else {
             $('#card-subtype-text').hide();
         }
 
-        if ('maximumAtk' in cardTranslation && cardTranslation.maximumAtk) {
+        if ('maximumAtk' in currentCard && currentCard.maximumAtk) {
             $('#card-maximum-atk').show();
-            $('#card-maximum-atk-text').text(cardTranslation.maximumAtk);
+            $('#card-maximum-atk-text').text(currentCard.maximumAtk);
         } else {
             $('#card-maximum-atk').hide();
         }
@@ -2188,12 +2289,12 @@ function renderCardData() {
         $('#card-atk-def').hide();
 
         $('#card-main-type-icon').show();
-        $('#card-main-type-icon').attr('src', `images/icons/${cardTranslation.cardType.toLowerCase()}.png`);
+        $('#card-main-type-icon').attr('src', `images/icons/${currentCard.cardType.toLowerCase()}.png`);
 
-        if (cardTranslation.type.toLowerCase() != 'normal') {
+        if (currentCard.type.toLowerCase() != 'normal') {
             $('#card-spell-trap-subtype').show();
-            $('#card-spell-trap-type-icon').attr('src', `images/icons/${cardTranslation.type.toLowerCase()}.png`);
-            $('#card-spell-trap-type-text').text(getLocalizedCardString('type', cardTranslation.type));
+            $('#card-spell-trap-type-icon').attr('src', `images/icons/${currentCard.type.toLowerCase()}.png`);
+            $('#card-spell-trap-type-text').text(getLocalizedCardString('type', currentCard.type));
         } else {
             $('#card-spell-trap-subtype').hide();
         }
@@ -2202,8 +2303,8 @@ function renderCardData() {
     //get status in the regions
     if (regionName == "all") {
         $.each(setRegions, function(key, region) {
-            if (cardTranslation.status[region]) {
-                generateStatusBadge(`#card-status-${region}`, cardTranslation.status[region], getLocalizedString('region', region));
+            if (currentCard.status[region]) {
+                generateStatusBadge(`#card-status-${region}`, currentCard.status[region], getLocalizedString('region', region));
             } else {
                 generateStatusBadge(`#card-status-${region}`, 'N/A', getLocalizedString('region', region));
             }
@@ -2211,14 +2312,14 @@ function renderCardData() {
 
         $('.status-tooltip').tooltip('dispose').tooltip({title: getTooltipTitle, html: true, placement: 'top'});
     } else {
-        if (cardTranslation.status[regionName]) {
-            generateStatusBadge(`#card-status-${regionName}`, cardTranslation.status[regionName]);
+        if (currentCard.status[regionName]) {
+            generateStatusBadge(`#card-status-${regionName}`, currentCard.status[regionName]);
         } else {
             generateStatusBadge(`#card-status-${regionName}`, 'N/A');
         }
     }
 
-    updatePageHistory(`${cardTranslation.name}`, 'card', cardTranslation.id);
+    updatePageHistory(`${cardName}`, 'card', currentCard.id);
 }
 
 function renderCardRelatedInfo() {
@@ -2352,7 +2453,7 @@ function generateCardSetsLists(cardID = null) {
                             } else {
                                 releases[region].push({
                                     set: set.prefix,
-                                    name: set.name,
+                                    name: userLang in set.name ? set.name[userLang] : set.name.en,
                                     setNumber: card.setNumber,
                                     date: set.releaseDate[region],
                                     rarities: card.rarities,
@@ -2388,7 +2489,7 @@ function generateCardSetsLists(cardID = null) {
                         } else {
                             releases[regionName].push({
                                 set: set.prefix,
-                                name: set.name,
+                                name: userLang in set.name ? set.name[userLang] : set.name.en,
                                 setNumber: card.setNumber,
                                 date: set.releaseDate[regionName],
                                 rarities: card.rarities,
@@ -2443,11 +2544,11 @@ function renderSearchCategory(container, category, property) {
                 break;
 
             default:
-                var searchCard = findCardIsReleased(value);
-                action = `loadCard(${value})`;
+                //get card name
+                name = getCardName(value, userLang);
 
-                if (searchCard) {
-                    name = searchCard.name;
+                if (name != null) {
+                    action = `loadCard(${value})`;
                 } else {
                     return;
                 }
@@ -2473,7 +2574,7 @@ function renderSearchCategory(container, category, property) {
 }
 
 function getFormatString(group, string, optionalGroup = null) {
-    if ((userLang == 'Es' && optionalGroup != 'cardType') || (userLang != 'Es' && optionalGroup == 'cardType')) {
+    if ((userLang == 'es' && optionalGroup != 'cardType') || (userLang != 'es' && optionalGroup == 'cardType')) {
         if (optionalGroup) {
             return `${getLocalizedString('effectString', group)} ${getLocalizedString(optionalGroup, string)}`;
         } else {
@@ -2532,7 +2633,7 @@ function createStringFromFilter(filter) {
             } else {
                 var totalAttributes = filter.attributes.length;
 
-                if (userLang == 'Es') {
+                if (userLang == 'es') {
                     $.each(filter.attributes, function(key, attribute) {
                         if (key == 0) {
                             keywords[1] += getFormatString('attribute', attribute);
@@ -2566,7 +2667,7 @@ function createStringFromFilter(filter) {
             } else {
                 var totalAttributes = filter.exclude.attributes.length;
 
-                if (userLang == 'Es') {
+                if (userLang == 'es') {
                     $.each(filter.exclude.attributes, function(key, attribute) {
                         if (key == 0) {
                             keywords[1] += getFormatString('attribute', attribute);
@@ -2603,7 +2704,7 @@ function createStringFromFilter(filter) {
         //monster type
         keywords[3] = '';
 
-        if (userLang == 'Es') {
+        if (userLang == 'es') {
             if ('type' in filter && filter.type) {
                 keywords[3] += `${getLocalizedString('cardTypeShort', 'Monster')} ${getLocalizedString('effectString', toCamelCase(filter.type))}`;
             } else if ('exclude' in filter && 'type' in filter.exclude && filter.exclude.type) {
@@ -2640,13 +2741,13 @@ function createStringFromFilter(filter) {
         if ('atk' in filter && !isNaN(filter.atk[0])) {
             keywords[5] = `${getLocalizedString('effectConjuction', 'with')} ${filter.atk[0]}`;
 
-            if (userLang != 'Es' && filter.atk[2]) {
+            if (userLang != 'es' && filter.atk[2]) {
                 keywords[5] += ` ${getLocalizedString('effectString', 'original')}`;
             }
 
             switch(filter.atk[1]) {
                 case '>=':
-                    if (userLang == 'Es') {
+                    if (userLang == 'es') {
                         keywords[5] += ` ATK ${getLocalizedString('effectString', 'orMore')}`;
                     } else {
                         keywords[5] += ` ${getLocalizedString('effectString', 'orMore')} ATK`;
@@ -2654,7 +2755,7 @@ function createStringFromFilter(filter) {
                     break;
 
                 case '<=':
-                    if (userLang == 'Es') {
+                    if (userLang == 'es') {
                         keywords[5] += ` ATK ${getLocalizedString('effectString', 'orLess')}`;
                     } else {
                         keywords[5] += ` ${getLocalizedString('effectString', 'orLess')} ATK`;
@@ -2669,7 +2770,7 @@ function createStringFromFilter(filter) {
                 default:
                     keywords[5] += ' ATK';
 
-                    if (userLang == 'Es' && filter.atk[2]) {
+                    if (userLang == 'es' && filter.atk[2]) {
                         keywords[5] += ` ${getLocalizedString('effectString', 'original')}`;
                     }
                     break;
@@ -2683,13 +2784,13 @@ function createStringFromFilter(filter) {
                 keywords[6] = `${getLocalizedString('effectConjuction', 'with')} ${filter.def[0]}`;
             }
 
-            if (userLang != 'Es' && filter.def[2]) {
+            if (userLang != 'es' && filter.def[2]) {
                 keywords[6] += ` ${getLocalizedString('effectString', 'original')}`;
             }
 
             switch(filter.def[1]) {
                 case '>=':
-                    if (userLang == 'Es') {
+                    if (userLang == 'es') {
                         keywords[6] += ` DEF ${getLocalizedString('effectString', 'orMore')}`;
                     } else {
                         keywords[6] += ` ${getLocalizedString('effectString', 'orMore')} DEF`;
@@ -2697,7 +2798,7 @@ function createStringFromFilter(filter) {
                     break;
 
                 case '<=':
-                    if (userLang == 'Es') {
+                    if (userLang == 'es') {
                         keywords[6] += ` DEF ${getLocalizedString('effectString', 'orLess')}`;
                     } else {
                         keywords[6] += ` ${getLocalizedString('effectString', 'orLess')} DEF`;
@@ -2720,7 +2821,7 @@ function createStringFromFilter(filter) {
                 default:
                     keywords[6] += ' DEF';
 
-                    if (userLang == 'Es' && filter.def[2]) {
+                    if (userLang == 'es' && filter.def[2]) {
                         keywords[6] += ` ${getLocalizedString('effectString', 'original')}`;
                     }
                     break;
@@ -2737,16 +2838,16 @@ function createStringFromFilter(filter) {
     }
 
     if ('id' in filter && filter.id) {
-        var filterCard = findCardIsReleased(filter.id);
+        var filterCard = getCardName(filter.id, userLang);
 
-        if (filterCard) {
-            keywords[3] = `"${filterCard.name}"`;
+        if (filterCard != null) {
+            keywords[3] = filterCard;
         }
     } else if ('specialId' in filter && filter.specialId) {
         keywords[3] = `"${getLocalizedString('specialId', filter.specialId)}"`;
     }
 
-    if (userLang == 'Es') {
+    if (userLang == 'es') {
         for(var i = 4; i >= 0; i--) {
             if (!keywords[i]) {
                 continue;
@@ -2792,7 +2893,7 @@ function parseRaceString(races) {
 
     var totalRaces = races.length;
 
-    if (userLang == 'Es') {
+    if (userLang == 'es') {
         $.each(races, function(key, race) {
             if (key == 0) {
                 raceString += getFormatString('race', race);
@@ -3065,7 +3166,7 @@ function getRarityBadge(abbreviation) {
     if (index >= 0) {
         var rarity = {
             abbreviation: data.rarities[index].abbreviation,
-            name: data.rarities[index].name,
+            name: userLang in data.rarities[index].name ? data.rarities[index].name[userLang] : data.rarities[index].name.en,
             color: data.rarities[index].color,
         };
 
@@ -3142,27 +3243,26 @@ function loadLanguage(lang) {
     });
 
     //update text
-    $('#navbar-card-language-selector span').text($(`#navbar-card-language-selector-${cardLang.toLowerCase()} span`).text());
+    $('#navbar-card-language-selector span').text($(`#navbar-card-language-selector-${cardLang} span`).text());
     $('#navbar-region-selector span').text(getLocalizedString('setRegion', regionName));
 }
 
 function changeLanguage(lang) {
     if (lang != userLang && languages.includes(lang)) {
-        json_list = getLanguageJSONList(lang.toLowerCase());
+        json_localization_list = getLocalizationJSONList(lang, cardLang);
 
-        loadJSON(json_list, result => {
+        loadJSON(json_localization_list, result => {
             data = Object.assign(data, result);
         }).then(function(val) {
-            generateSortedMainCardsList();
             sortedCardSearchFilters(false);
 
-            $(`#navbar-language-selector-${userLang.toLowerCase()}`).removeClass('active');
+            $(`#navbar-language-selector-${userLang}`).removeClass('active');
 
             userLang = lang;
             localStorage.setItem('language', lang);
 
-            $('#navbar-language-selector span').text($(`#navbar-language-selector-${userLang.toLowerCase()} span`).text());
-            $(`#navbar-language-selector-${userLang.toLowerCase()}`).addClass('active');
+            $('#navbar-language-selector span').text($(`#navbar-language-selector-${userLang} span`).text());
+            $(`#navbar-language-selector-${userLang}`).addClass('active');
 
             loadModule(selectedModule);
         }, function(reason) {
@@ -3173,21 +3273,21 @@ function changeLanguage(lang) {
 
 function changeCardLanguage(lang) {
     if (lang != cardLang && cardLanguages.hasOwnProperty(lang)) {
-        json_card_list = getCardJSONList(lang.toLowerCase());
+        json_localization_list = getLocalizationJSONList(userLang, lang);
 
-        loadJSON(json_card_list, result => {
+        loadJSON(json_localization_list, result => {
             data = Object.assign(data, result);
         }).then(function(val) {
-            generateSortedCardsList();            
+            generateSortedCardsList();
             generateCardSearchFilters(false);
 
-            $(`#navbar-card-language-selector-${cardLang.toLowerCase()}`).removeClass('active');
+            $(`#navbar-card-language-selector-${cardLang}`).removeClass('active');
 
             cardLang = lang;
             localStorage.setItem('cardLanguage', lang);
 
-            $('#navbar-card-language-selector span').text($(`#navbar-card-language-selector-${cardLang.toLowerCase()} span`).text());
-            $(`#navbar-card-language-selector-${cardLang.toLowerCase()}`).addClass('active');
+            $('#navbar-card-language-selector span').text($(`#navbar-card-language-selector-${cardLang} span`).text());
+            $(`#navbar-card-language-selector-${cardLang}`).addClass('active');
 
             loadModule(selectedModule);
         }, function(reason) {

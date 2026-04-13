@@ -1,0 +1,62 @@
+{
+	"attribute": {
+		"DARK": "闇",
+		"EARTH": "地",
+		"FIRE": "炎",
+		"LIGHT": "光",
+		"WATER": "水",
+		"WIND": "風"
+	},
+    "cardType": {
+        "Monster": "モンスターカード",
+        "Spell": "魔法カード",
+        "Trap": "罠カード"
+    },
+    "cardTypeShort": {
+        "Monster": "モンスター",
+        "Spell": "魔法",
+        "Trap": "罠"
+    },
+	"race": {
+		"Aqua": "水",
+		"Beast": "獣",
+		"BeastWarrior": "獣戦士",
+		"CelestialWarrior": "天界戦士",
+		"Cyberse": "サイバース",
+		"Cyborg": "サイボーグ",
+		"Dinosaur": "恐竜",
+		"Dragon": "ドラゴン",
+		"Fairy": "天使",
+		"Fiend": "悪魔",
+		"Fish": "魚",
+		"Galaxy": "ギャラクシー",
+		"HighDragon": "ハイドラゴン",
+		"Insect": "昆虫",
+		"Machine": "機械",
+		"MagicalKnight": "魔導騎士",
+		"OmegaPsychic": "オメガサイキック",
+		"Plant": "植物",
+		"Psychic": "サイキック",
+		"Pyro": "炎",
+		"Reptile": "爬虫類",
+		"Rock": "岩石",
+		"SeaSerpent": "海竜",
+		"Spellcaster": "魔法使い",
+		"Thunder": "雷",
+		"Warrior": "戦士",
+		"WingedBeast": "鳥獣",
+		"Wyrm": "幻竜",
+		"Zombie": "アンデット"
+	},
+	"type": {
+		"Effect": "効果",
+		"Equip": "装備",
+		"Field": "フィールド",
+		"Fusion": "フュージョン",
+		"Legend": "レジェンド",
+		"Maximum": " マキシマム",
+        "NonEffect": "効果モンスター以外",
+		"Normal": "通常",
+		"Ritual": "リチュアル"
+	}
+}

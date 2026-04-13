@@ -101,6 +101,7 @@
     },
     "searchCategory": {
         "AntiSupports": "Anti-supports",
+        "Conditions": "Conditions",
         "ContinuousEffects": "Continuous Effects",
         "Effects": "Effects",
         "EquipsTo": "Equips to",
@@ -112,20 +113,27 @@
         "Properties": "Miscellaneous",
         "Requeriments": "Requeriments",
         "Series": "Series",
-        "Supports": "Supports"
+        "Supports": "Supports",
+        "TreatedAs": "Treated as"
     },
     "series": {
         "BlackLusterSoldier": "Black Luster Soldier",
         "BlueEyes": "Blue-Eyes",
         "DarkMagician": "Dark Magician",
+        "Dolphin": "Dolphin",
+        "Gaia": "Gaia",
         "Galactica": "Galactica",
         "Metarion": "Metarion",
         "Monarch": "Monarch",
+        "OuTerverSe": "OuTerverSe",
         "PrincessCosmos": "Princess Cosmos",
         "RedEyes": "Red-Eyes",
         "SevensRoad": "Sevens Road",
+        "ShamanBandit": "Shaman Bandit",
         "StrikeDragon": "Strike Dragon",
         "Tron": "Tron",
+        "Umi": "Umi",
+        "Voidvelg": "Voidvelg",
         "WoolyWonderland": "Wooly Wonderland"
     },
     "setRegion": {
@@ -133,6 +141,9 @@
         "dl": "Duel Links",
         "jp": "Japanese",
         "kr": "Korean"
+    },
+    "specialId": {
+        "4000": "OuTerverSe"
     },
     "status": {
         "Forbidden": "Forbidden",
@@ -167,6 +178,7 @@
         "Attributes": "Attributes",
         "CardLanguage": "Card language",
         "CardList": "Card list",
+        "CardTextNotFound": "Text not available.",
         "CardNotFound": "Card not found.",
         "CardsCategories": "Monster/Spell/Trap categories",
         "CardType": "Card type",

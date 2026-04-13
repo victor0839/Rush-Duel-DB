@@ -1,0 +1,2194 @@
+[
+	{
+		"type": "activation",
+		"abbreviation": "PlayerNormalDraw",
+		"name": {
+			"en": "Activates if you draw for your normal draw during the Draw Phase",
+			"es": "Cuando realizas un robo normal durante la Draw Phase"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentNormalDraw",
+		"name": {
+			"en": "Activates if your opponent draws for their normal draw in their Draw Phase",
+			"es": "Cuando tu adversario realiza un robo normal durante la Draw Phase"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentDraws",
+	    "name": {
+	    	"en": "Activates if your opponent draws a card",
+	    	"es": "Cuando tu adversario roba una carta"
+	    }
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentAddedToHandFromGraveyard",
+		"name": {
+			"en": "Activates if your opponent adds a card from the Graveyard to the hand",
+			"es": "Cuando tu adversario añade a su mano una carta desde el Cementerio"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "PlayerNormalSummoned",
+		"name": {
+			"en": "Activates upon your Normal Summon",
+			"es": "Cuando Invocas de Modo Normal"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentNormalSummoned",
+		"name": {
+			"en": "Activates upon your opponent's Normal Summon",
+			"es": "Cuando tu adversario Invoca de Modo Normal"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentSetsFromHand",
+		"name": {
+			"en": "Activates upon your opponent's Set from the hand",
+			"es": "Cuando tu adversario Coloca un monstruo de su mano"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "PlayerSpecialSummoned",
+		"name": {
+			"en": "Activates upon your Special Summon",
+			"es": "Cuando Invocas de Modo Especial"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentSpecialSummoned",
+		"name": {
+			"en": "Activates upon your opponent's Special Summon",
+			"es": "Cuando tu adversario Invoca de Modo Especial"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentSpecialSummonedFromHand",
+		"name": {
+			"en": "Activates upon your opponent's Special Summon from the hand",
+			"es": "Cuando tu adversario Invoca de Modo Especial desde la mano"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentSpecialSummonedFromGraveyard",
+		"name": {
+			"en": "Activates upon your opponent's Special Summon from the Graveyard",
+			"es": "Cuando tu adversario Invoca de Modo Especial desde el Cementerio"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentActivatedSpellCard",
+		"name": {
+			"en": "Activates after your opponent activates a Spell Card",
+			"es": "Después de que tu adversario active una Carta Mágica"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentAttackDeclaration",
+		"name": {
+			"en": "Activates upon your opponent's attack declaration",
+			"es": "Cuando tu adversario declara un ataque"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentAttackDeclarationOnMonster",
+		"name": {
+			"en": "Activates upon your opponent's attack declaration on a monster",
+			"es": "Cuando tu adversario declara un ataque dirigido a tu monstruo"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentAttackDeclarationDirectAttack",
+		"name": {
+			"en": "Activates upon your opponent's direct attack declaration",
+			"es": "Cuando tu adversario declara un ataque directo"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "MonsterDestroyedByBattle",
+		"name": {
+			"en": "Activates if your monster is destroyed by battle",
+			"es": "Cuando un monstruo es destruido en batalla"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "MonsterDestroyedByBattleOpponentAttack",
+		"name": {
+			"en": "Activates if your monster is destroyed by an opponent's attack",
+			"es": "Cuando tu monstruo es destruido por un ataque del adversario"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "CardDestroyedByOpponentCardEffect",
+		"name": {
+			"en": "Activates if your card is destroyed by an opponent's card effect",
+			"es": "Cuando tu carta es destruida por el efecto de una carta del adversario"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "MonsterDestroyedByOpponentCardEffect",
+		"name": {
+			"en": "Activates if your monster is destroyed by an opponent's card effect",
+			"es": "Cuando tu monstruo es destruido por el efecto de una carta del adversario"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "SpellDestroyedByOpponentCardEffect",
+		"name": {
+			"en": "Activates if your Spell Card is destroyed by an opponent's card effect",
+			"es": "Cuando tu Carta Mágica es destruida por el efecto de una carta del adversario"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "TrapDestroyedByOpponentCardEffect",
+		"name": {
+			"en": "Activates if your Trap Card is destroyed by an opponent's card effect",
+			"es": "Cuando tu Carta de Trampa es destruida por el efecto de una carta del adversario"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "CardSentToOpponentGraveyard",
+		"name": {
+			"en": "Activates if a card is sent to your opponent's Graveyard",
+			"es": "Cuando una carta es mandada al Cementerio del adversario"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "CardFromOpponentDeckSentToGraveyard",
+		"name": {
+			"en": "Activates if a monster is sent from your opponent's Deck to the Graveyard",
+			"es": "Cuando una carta es mandada al Cementerio desde el Deck de tu adversario"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentMonsterSentToOpponentGraveyard",
+		"name": {
+			"en": "Activates if a monster is sent from your opponent's field to their Graveyard",
+			"es": "Cuando un monstruo en el Campo de tu adversario es mandado al Cementerio"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "CardReturnedToDeckFromGraveyard",
+		"name": {
+			"en": "Activates if a card is returned from the Graveyard to the Deck",
+			"es": "Cuando una carta en el Cementerio es devuelta al Deck"
+		}
+	},
+	{
+		"type": "activation",
+		"abbreviation": "OpponentTakesEffectDamage",
+		"name": {
+			"en": "Activates if your opponent takes effect damage",
+			"es": "Cuando tu adversario recibe daño por efecto"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendFromTopDeckToGraveyard",
+		"name": {
+			"en": "Sends from the top of your Deck to the Graveyard",
+			"es": "Manda al Cementerio cartas de la parte superior de tu Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendFromTopOpponentDeckToGraveyard",
+		"name": {
+			"en": "Sends from the top of your opponent's Deck to the Graveyard",
+			"es": "Manda al Cementerio cartas de la parte superior del Deck de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendFromBottomDeckToGraveyard",
+		"name": {
+			"en": "Sends from the bottom of your Deck to Graveyard",
+			"es": "Manda al Cementerio cartas de la parte inferior de tu Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendFromHandToGraveyard",
+		"name": {
+			"en": "Sends cards from your hand to Graveyard",
+			"es": "Manda al Cementerio cartas en tu mano"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendFromOpponentHandToGraveyard",
+		"name": {
+			"en": "Sends cards from your opponent's hand to Graveyard",
+			"es": "Manda al Cementerio cartas en la mano del adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendSpecificCardFromHandToGraveyard",
+		"name": {
+			"en": "Sends specific cards from your hand to Graveyard",
+			"es": "Manda al Cementerio cartas específicas en tu mano"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendMonsterFromHandToGraveyard",
+		"name": {
+			"en": "Sends monsters from your hand to Graveyard",
+			"es": "Manda al Cementerio monstruos en tu mano"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendSpellFromHandToGraveyard",
+		"name": {
+			"en": "Sends Spell Cards from your hand to Graveyard",
+			"es": "Manda al Cementerio Cartas Mágicas en tu mano"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendTrapFromHandToGraveyard",
+		"name": {
+			"en": "Sends Trap Cards from your hand to Graveyard",
+			"es": "Manda al Cementerio Cartas de Trampa en tu mano"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendFromFieldToGraveyard",
+		"name": {
+			"en": "Sends cards from your field to the Graveyard",
+			"es": "Manda al Cementerio cartas en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendSpecificCardFromFieldToGraveyard",
+		"name": {
+			"en": "Sends specific cards from your field to the Graveyard",
+			"es": "Manda al Cementerio cartas específicas en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendMonsterFromFieldToGraveyard",
+		"name": {
+			"en": "Sends monsters from your field to the Graveyard",
+			"es": "Manda al Cementerio monstruos en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendItselfFromFieldToGraveyard",
+		"name": {
+			"en": "Sends itself from field to Graveyard",
+			"es": "Se manda al Cementerio desde tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendSpellFromFieldToGraveyard",
+		"name": {
+			"en": "Sends Spell Cards from your field to the Graveyard",
+			"es": "Manda al Cementerio Cartas Mágicas en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendTrapFromFieldToGraveyard",
+		"name": {
+			"en": "Sends Trap Cards from your field to the Graveyard",
+			"es": "Manda al Cementerio Cartas de Trampa en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesFromHandOnTopDeck",
+		"name": {
+			"en": "Places cards from your hand on the top of the Deck",
+			"es": "Pone cartas en tu mano en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesFromHandOnBottomDeck",
+		"name": {
+			"en": "Places cards from your hand on the bottom of the Deck",
+			"es": "Pone cartas en tu mano en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesFromOpponentHandOnBottomDeck",
+		"name": {
+			"en": "Places cards from your opponent's hand on the bottom of the Deck",
+			"es": "Pone cartas en la mano de tu adversario en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesMonsterFromFieldOnTopDeck",
+		"name": {
+			"en": "Places monsters from your field on the top of the Deck",
+			"es": "Pone monstruos en tu Campo en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesMonsterFromOpponentFieldOnTopDeck",
+		"name": {
+			"en": "Places monsters from your opponent's field on the top of the Deck",
+			"es": "Pone monstruos en el Campo de tu adversario en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesSpellFromOpponentFieldOnTopDeck",
+		"name": {
+			"en": "Places Spell Cards from your opponent's field on the top of the Deck",
+			"es": "Pone Cartas Mágicas en el Campo de tu adversario en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesTrapFromOpponentFieldOnTopDeck",
+		"name": {
+			"en": "Places Trap Cards from your opponent's field on the top of the Deck",
+			"es": "Pone Cartas de Trampa en el Campo de tu adversario en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesFromFieldOnBottomDeck",
+		"name": {
+			"en": "Places cards from your field on the bottom of the Deck",
+			"es": "Pone cartas en tu Campo en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesFromOpponentFieldOnBottomDeck",
+		"name": {
+			"en": "Places cards from your opponent's field on the bottom of the Deck",
+			"es": "Pone cartas en el Campo de tu adversario en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesMonsterFromFieldOnBottomDeck",
+		"name": {
+			"en": "Places monsters from your field on the bottom of the Deck",
+			"es": "Pone monstruos en tu Campo en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesMonsterFromOpponentFieldOnBottomDeck",
+		"name": {
+			"en": "Places monsters from your opponent's field on the bottom of the Deck",
+			"es": "Pone monstruos en el Campo de tu adversario en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesItselfFromFieldOnBottomDeck",
+		"name": {
+			"en": "Places itself from your field on the bottom of the Deck",
+			"es": "Se pone de tu Campo en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesSpellFromOpponentFieldOnBottomDeck",
+		"name": {
+			"en": "Pone Cartas Mágicas en el Campo de tu adversario en la parte inferior del Deck",
+			"es": "Places Spell Cards from your opponent's field on the bottom of the Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesTrapFromOpponentFieldOnBottomDeck",
+		"name": {
+			"en": "Places Trap Cards from your opponent's field on the bottom of the Deck",
+			"es": "Pone Cartas de Trampa en el Campo de tu adversario en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesFromOpponentGraveyardOnTopDeck",
+		"name": {
+			"en": "Places cards from your opponent's Graveyard on the top of the Deck",
+			"es": "Pone cartas en el Cementerio de tu adversario en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesSpecificCardFromGraveyardOnTopDeck",
+		"name": {
+			"en": "Places specific cards from your Graveyard on the top of the Deck",
+			"es": "Pone cartas específicas en tu Cementerio en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesMonsterFromGraveyardOnTopDeck",
+		"name": {
+			"en": "Places monsters from your Graveyard on the top of the Deck",
+			"es": "Pone monstruos en tu Cementerio en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesSpellFromGraveyardOnTopDeck",
+		"name": {
+			"en": "Places Spell Cards from your Graveyard on the top of the Deck",
+			"es": "Pone Cartas Mágicas en tu Cementerio en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesFromGraveyardOnBottomDeck",
+		"name": {
+			"en": "Places cards from your Graveyard on the bottom of the Deck",
+			"es": "Pone cartas en tu Cementerio en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesFromOpponentGraveyardOnBottomDeck",
+		"name": {
+			"en": "Places cards from your opponent's Graveyard on the bottom of the Deck",
+			"es": "Pone cartas en el Cementerio de tu adversario en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesSpecificCardFromGraveyardOnBottomDeck",
+		"name": {
+			"en": "Places specific cards from your Graveyard on the bottom of the Deck",
+			"es": "Pone cartas específicas en tu Cementerio en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesMonsterFromGraveyardOnBottomDeck",
+		"name": {
+			"en": "Places monsters from your Graveyard on the bottom of the Deck",
+			"es": "Pone monstruos en tu Cementerio en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesSpellFromGraveyardOnBottomDeck",
+		"name": {
+			"en": "Places Spell Cards from your Graveyard on the bottom of the Deck",
+			"es": "Pone Cartas Mágicas en tu Cementerio en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesSpellFromOpponentGraveyardOnBottomDeck",
+		"name": {
+			"en": "Places Spell Cards from your opponent's Graveyard on the bottom of the Deck",
+			"es": "Pone Cartas Mágicas en el Cementerio de tu adversario en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesTrapFromGraveyardOnBottomDeck",
+		"name": {
+			"en": "Places Trap Cards from your Graveyard on the bottom of the Deck",
+			"es": "Pone Cartas de Trampa en tu Cementerio en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesTrapFromOpponentGraveyardOnBottomDeck",
+		"name": {
+			"en": "Places Trap Cards from your opponent's Graveyard on the bottom of the Deck",
+			"es": "Pone Cartas de Trampa en el Cementerio de tu adversario en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleFromHandToDeck",
+		"name": {
+			"en": "Shuffles cards from your hand into the Deck",
+			"es": "Baraja al Deck cartas en tu mano"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleFromOpponentHandToDeck",
+		"name": {
+			"en": "Shuffles cards from your opponent's hand into the Deck",
+			"es": "Baraja al Deck cartas en la mano de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleMonsterFromHandToDeck",
+		"name": {
+			"en": "Shuffles monsters from your hand into the Deck",
+			"es": "Baraja al Deck monstruos en tu mano"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleFromOpponentFieldToDeck",
+		"name": {
+			"en": "Shuffles cards from your opponent's field into the Deck",
+			"es": "Baraja al Deck cartas en el Campo de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleMonsterFromFieldToDeck",
+		"name": {
+			"en": "Shuffles monsters from your field into the Deck",
+			"es": "Baraja al Deck monstruos en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleMonsterFromOpponentFieldToDeck",
+		"name": {
+			"en": "Baraja al Deck monstruos en el Campo de tu adversario",
+			"es": "Shuffles monsters from your opponent's field into the Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleItselfFromFieldToDeck",
+		"name": {
+			"en": "Shuffles itself from your field into the Deck",
+			"es": "Se baraja a si mismo al Deck de tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleSpellFromFieldToDeck",
+		"name": {
+			"en": "Shuffles Spell Cards from your field into the Deck",
+			"es": "Baraja al Deck Cartas Mágicas en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleFromOpponentGraveyardToDeck",
+		"name": {
+			"en": "Shuffles cards from your opponent's Graveyard into the Deck",
+			"es": "Baraja al Deck cartas en el Cementerio de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleSpecificCardFromGraveyardToDeck",
+		"name": {
+			"en": "Shuffles specific cards from your Graveyard into the Deck",
+			"es": "Baraja al Deck cartas específicas en tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleMonsterFromGraveyardToDeck",
+		"name": {
+			"en": "Shuffles monsters from your Graveyard into the Deck",
+			"es": "Baraja al Deck monstruos en tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleMonsterFromOpponentGraveyardToDeck",
+		"name": {
+			"en": "Shuffles monsters from your opponent's Graveyard into the Deck",
+			"es": "Baraja al Deck monstruos en el Cementerio de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleSpellFromGraveyardToDeck",
+		"name": {
+			"en": "Shuffles Spell Cards from your Graveyard into the Deck",
+			"es": "Baraja al Deck Cartas Mágicas en tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleSpellFromOpponentGraveyardToDeck",
+		"name": {
+			"en": "Shuffles Spell Cards from your opponent's Graveyard into the Deck",
+			"es": "Baraja al Deck Cartas Mágicas en el Cementerio de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShuffleTrapFromGraveyardToDeck",
+		"name": {
+			"en": "Shuffles Trap Cards from your Graveyard into the Deck",
+			"es": "Baraja al Deck Cartas de Trampa en tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsFromFieldToHand",
+		"name": {
+			"en": "Returns cards from your field to hand",
+			"es": "Devuelve a la mano cartas en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsFromOpponentFieldToHand",
+		"name": {
+			"en": "Returns cards from your opponent's field to hand",
+			"es": "Devuelve a la mano cartas en el Campo de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsSpecificCardFromFieldToHand",
+		"name": {
+			"en": "Returns specific cards from your field to hand",
+			"es": "Devuelve a la mano cartas específicas en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsMonsterFromFieldToHand",
+		"name": {
+			"en": "Returns monsters from your field to hand",
+			"es": "Devuelve a la mano monstruos en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsMonsterFromOpponentFieldToHand",
+		"name": {
+			"en": "Returns monsters from your opponent's field to hand",
+			"es": "Devuelve a la mano monstruos en el Campo de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsItselfFromFieldToHand",
+		"name": {
+			"en": "Returns itself from field to hand",
+			"es": "Se devuelve a la mano desde el Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsSpellFromFieldToHand",
+		"name": {
+			"en": "Returns Spell Cards from your field to hand",
+			"es": "Devuelve a la mano Cartas Mágicas en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsSpellFromOpponentFieldToHand",
+		"name": {
+			"en": "Returns Spell Cards from your opponent's field to hand",
+			"es": "Devuelve a la mano Cartas Mágicas en el Campo de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsTrapFromFieldToHand",
+		"name": {
+			"en": "Returns Trap Cards from your field to hand",
+			"es": "Devuelve a la mano Cartas de Trampa en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ReturnsTrapFromOpponentFieldToHand",
+		"name": {
+			"en": "Returns Trap Cards from your opponent's field to hand",
+			"es": "Devuelve a la mano Cartas de Trampa en el Campo de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "AddsFromGraveyardToHand",
+		"name": {
+			"en": "Adds cards from your Graveyard to your hand",
+			"es": "Añade a tu mano cartas en tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "AddsSpecificCardFromGraveyardToHand",
+		"name": {
+			"en": "Adds specific cards from your Graveyard to your hand",
+			"es": "Añade a tu mano cartas específicas en tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "AddsCopiesItselfFromGraveyardToHand",
+		"name": {
+			"en": "Adds copies of itself from your Graveyard to the hand",
+			"es": "Añade a tu mano copias de sí mismo en tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "AddsMonsterFromGraveyardToHand",
+		"name": {
+			"en": "Adds monsters from your Graveyard to your hand",
+			"es": "Añade a tu mano monstruos en tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "AddsMonsterFromOpponentGraveyardToOpponentHand",
+		"name": {
+			"en": "Adds monsters from your opponent's Graveyard to your opponent's hand",
+			"es": "Añade a la mano de tu adversario monstruos en el Cementerio del adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "AddsSpellFromGraveyardToHand",
+		"name": {
+			"en": "Adds Spell Cards from your Graveyard to your hand",
+			"es": "Añade a tu mano Cartas Mágicas en tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "RevealsPlayerHand",
+		"name": {
+			"en": "Reveals your hand",
+			"es": "Muestra tu mano"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "RevealsPlayerExtraDeck",
+		"name": {
+			"en": "Reveals your Extra Deck",
+			"es": "Muestra tu Deck Extra"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ExcavatesDeck",
+		"name": {
+			"en": "Excavates from the player's Deck",
+			"es": "Excava el Deck del jugador"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ExcavatesOpponentDeck",
+		"name": {
+			"en": "Excavates from your opponent's Deck",
+			"es": "Excava el Deck del adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "AddsExcavatedCardToHand",
+		"name": {
+			"en": "Adds excavated cards to the hand",
+			"es": "Añade a tu mano cartas excavadas"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesExcavatedCardsOnTopDeck",
+		"name": {
+			"en": "Places excavated cards on the top of the Deck",
+			"es": "Pone cartas excavadas en la parte superior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesExcavatedCardsOnBottomDeck",
+		"name": {
+			"en": "Places excavated cards on the bottom of the Deck",
+			"es": "Pone cartas excavadas en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShufflesExcavatedCardsIntoDeck",
+		"name": {
+			"en": "Shuffles excavated cards into the Deck",
+			"es": "Baraja al Deck cartas excavadas"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SendsExcavatedCardsToGraveyard",
+		"name": {
+			"en": "Sends excavated cards to the Graveyard",
+			"es": "Manda al Cementerio cartas excavadas"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SetsSpellFromOpponentHandToOpponentField",
+		"name": {
+			"en": "Sets Spell Cards from your opponent's hand to their field",
+			"es": "Coloca Cartas Mágicas en la mano de tu adversario en su Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SetsTrapFromOpponentHandToOpponentField",
+		"name": {
+			"en": "Sets Trap Cards from your opponent's hand to their field",
+			"es": "Coloca Cartas de Trampa en la mano de tu adversario en su Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SetsSpecificCardFromGraveyardToField",
+		"name": {
+			"en": "Sets specific cards from your Graveyard",
+			"es": "Coloca cartas específicas de tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SetsSpellFromGraveyardToField",
+		"name": {
+			"en": "Sets Spell Cards from your Graveyard",
+			"es": "Coloca Cartas Mágicas de tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SetsSpellFromOpponentGraveyardToOpponentField",
+		"name": {
+			"en": "Sets Spell Cards from your opponent's Graveyard to their field",
+			"es": "Coloca Cartas Mágicas en el Cementerio de tu adversario en su Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SetsTrapFromGraveyardToField",
+		"name": {
+			"en": "Sets Trap Cards from your Graveyard",
+			"es": "Coloca Cartas de Trampa de tu Cementerio"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "SetsTrapFromOpponentGraveyardToOpponentField",
+		"name": {
+			"en": "Sets Trap Cards from your opponent's Graveyard to their field",
+			"es": "Coloca Cartas de Trampa en el Cementerio de tu adversario en su Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ChangesBattlePositions",
+		"name": {
+			"en": "Changes battle positions on your field",
+			"es": "Cambia posiciones de batalla en tu Campo"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ChangesOwnBattlePosition",
+		"name": {
+			"en": "Changes own battle position",
+			"es": "Cambia su posición de batalla"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ChangesOpponentBattlePositions",
+		"name": {
+			"en": "Changes battle positions on your opponent's field",
+			"es": "Cambia posiciones de batalla en el Campo de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ChangesMonstersToAttackPosition",
+		"name": {
+			"en": "Changes your monsters to Attack Position",
+			"es": "Cambia tus monstruos a Posición de Ataque"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ChangesOpponentMonstersToAttackPosition",
+		"name": {
+			"en": "Changes your opponent's monsters to Attack Position",
+			"es": "Cambia los monstruos del adversario a Posición de Ataque"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ChangesMonstersToDefensePosition",
+		"name": {
+			"en": "Changes your monsters to Defense Position",
+			"es": "Cambia tus monstruos a Posición de Defensa"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ChangesOwnToDefensePosition",
+		"name": {
+			"en": "Changes own battle position to Defense Position",
+			"es": "Cambia su posición de batalla a Posición de Defensa"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ChangesOpponentMonstersToDefensePosition",
+		"name": {
+			"en": "Changes your opponent's monsters to Defense Position",
+			"es": "Cambia los monstruos del adversario a Posición de Defensa"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "TributesOpponentMonsters",
+		"name": {
+			"en": "Tributes opponent's monsters",
+			"es": "Sacrifica monstruos del adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "RevealsHandForSpecialSummons",
+		"name": {
+			"en": "Reveals your hand for Special Summon",
+			"es": "Muestra tu mano para Invocar de Modo Especial"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "CardsInHandAsFusionMaterials",
+		"name": {
+			"en": "Uses cards in the hand as Fusion Materials",
+			"es": "Usa cartas en tu mano como Materiales de Fusión"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "CardsOnFieldAsFusionMaterials",
+		"name": {
+			"en": "Uses cards on the player's field as Fusion Materials",
+			"es": "Usa cartas en tu Campo como Materiales de Fusión"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "CardsOnOpponentFieldAsFusionMaterials",
+		"name": {
+			"en": "Uses cards on the opponent's field as Fusion Materials",
+			"es": "Usa cartas en el Campo de tu adversario como Materiales de Fusión"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "CardsInGraveyardAsFusionMaterials",
+		"name": {
+			"en": "Uses cards in the player's Graveyard as Fusion Materials",
+			"es": "Usa cartas en tu Cementerio como Materiales de Fusión"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlacesFusionMaterialsToBottomDeck",
+		"name": {
+			"en": "Places Fusion Materials used in a Fusion Summon on the bottom of the Deck",
+			"es": "Pone los Materiales de Fusión usados en la parte inferior del Deck"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ShufflesFusionMaterialsToDeck",
+		"name": {
+			"en": "Shuffles Fusion Materials used in a Fusion Summon into the Deck",
+			"es": "Baraja al Deck los Materiales de Fusión usados"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ModifiesCardsUsedAsFusionMaterials",
+		"name": {
+			"en": "Modifies which cards can be used as Fusion Material",
+			"es": "Modifica cuales cartas pueden ser usadas como Materiales de Fusión"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "CardsInHandAsRitualMaterials",
+		"name": {
+			"en": "Uses cards in the hand as Ritual Materials",
+			"es": "Usa cartas en tu mano como Materiales de Ritual"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "CardsOnFieldAsRitualMaterials",
+		"name": {
+			"en": "Uses cards on the player's field as Ritual Materials",
+			"es": "Usa cartas en tu Campo como Materiales de Ritual"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlayerDrawCards",
+		"name": {
+			"en": "You draw cards",
+			"es": "Robas cartas"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "OpponentDrawCards",
+		"name": {
+			"en": "Your opponent draws cards",
+			"es": "Tu adversario roba cartas"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "RevealsOpponentHand",
+		"name": {
+			"en": "Reveals your opponent's hand",
+			"es": "Muestra la mano de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "RevealsOpponentFaceDownCard",
+		"name": {
+			"en": "Reveals your opponent's face-down cards",
+			"es": "Muestra cartas boca abajo de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "RevealsOpponentFaceDownMonsters",
+		"name": {
+			"en": "Reveals your opponent's face-down monsters",
+			"es": "Muestra monstruos boca abajo de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "RevealsOpponentFaceDownSpellTrapCards",
+		"name": {
+			"en": "Reveals your opponent's face-down Spell/Trap Cards",
+			"es": "Muestra Cartas Mágicas/de Trampa boca abajo de tu adversario"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "PlayerDeclaresCardName",
+		"name": {
+			"en": "Declares a card name",
+			"es": "Declara un nombre de carta"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "ChangesCost",
+		"name": {
+			"en": "Changes cost",
+			"es": "Cambia costos"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "OverwritesCardEffects",
+		"name": {
+			"en": "Overwrites card effects",
+			"es": "Sobreescribe efectos de cartas"
+		}
+	},
+	{
+		"type": "actions",
+		"abbreviation": "EffectCannotBeNegated",
+		"name": {
+			"en": "Effect cannot be negated",
+			"es": "No se puede negar el efecto"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ChangesOwnNameinHand",
+		"name": {
+			"en": "Changes own name while on the hand",
+			"es": "Cambia su nombre mientras esté en la mano"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ChangesOwnNameOnField",
+		"name": {
+			"en": "Changes own name while on the field",
+			"es": "Cambia su nombre mientras esté en el Campo"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ChangesOwnNameInGraveyard",
+		"name": {
+			"en": "Changes own name while in the Graveyard",
+			"es": "Cambia su nombre mientras esté en el Cementerio"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "CopiesName",
+		"name": {
+			"en": "Copies name",
+			"es": "Copia nombre"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "TreatsCardAsAlternateName",
+		"name": {
+			"en": "Treats a card's name as alternate name",
+			"es": "Trata el nombre de una carta como un nombre alternativo"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "TreatsOwnNameAsAlternateName",
+		"name": {
+			"en": "Treats own name as alternate name",
+			"es": "Trata su nombre como un nombre alternativo"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ChangesOpponentOriginalATK",
+		"name": {
+			"en": "Changes your opponent's monsters original ATK",
+			"es": "Cambia el ATK original de los monstruos del adversario"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ChangesOwnOriginalATK",
+		"name": {
+			"en": "Changes own original ATK",
+			"es": "Cambia su ATK original"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ChangesPlayerType",
+		"name": {
+			"en": "Changes your monsters Type",
+			"es": "Cambia el Tipo de tus monstruos"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ChangesOpponentType",
+		"name": {
+			"en": "Cambia el Tipo de los monstruos del adversario",
+			"es": "Changes your opponent's monsters Type"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ChangesOwnType",
+		"name": {
+			"en": "Changes own Type",
+			"es": "Cambia su Tipo"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ChangesOpponentAttribute",
+		"name": {
+			"en": "Changes your opponent's monsters Attribute",
+			"es": "Cambia el Atributo de los monstruos del adversario"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "PlayerMonstersGainLevels",
+		"name": {
+			"en": "Your monsters gain Levels",
+			"es": "Tus monstruos ganan Niveles"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ThisCardGainLevels",
+		"name": {
+			"en": "This card gains Levels",
+			"es": "Esta carta gana Niveles"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "PlayerMonstersLoseLevels",
+		"name": {
+			"en": "Your monsters lose Levels",
+			"es": "Tus monstruos pierden Niveles"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "OpponentMonstersLoseLevels",
+		"name": {
+			"en": "Your opponent's monsters lose Levels",
+			"es": "Los monstruos del adversario pierden Niveles"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ThisCardLoseLevels",
+		"name": {
+			"en": "This card loses Levels",
+			"es": "Esta carta pierde Niveles"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "PlayerMonstersGainATK",
+		"name": {
+			"en": "Your monsters gain ATK",
+			"es": "Tus monstruos ganan ATK"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ThisCardGainsATK",
+		"name": {
+			"en": "This card gains ATK",
+			"es": "Esta carta gana ATK"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "AllMonstersGainATK",
+		"name": {
+			"en": "All monsters gain ATK",
+			"es": "Todos los monstruos ganan ATK"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "PlayerMonstersGainDEF",
+		"name": {
+			"en": "Your monsters gain DEF",
+			"es": "Tus monstruos ganan DEF"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ThisCardGainsDEF",
+		"name": {
+			"en": "Esta carta gana DEF",
+			"es": "This card gains DEF"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "AllMonstersGainDEF",
+		"name": {
+			"en": "All monsters gain DEF",
+			"es": "Todos los monstruos ganan DEF"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "OpponentMonstersLoseATK",
+		"name": {
+			"en": "Your opponent's monsters lose ATK",
+			"es": "Los monstruos del adversario pierden ATK"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "ThisCardLosesATK",
+		"name": {
+			"en": "This card loses ATK",
+			"es": "Esta carta pierde ATK"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "AllMonstersLoseATK",
+		"name": {
+			"en": "All monsters lose ATK",
+			"es": "Todos los monstruos pierden ATK"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "PlayerMonstersLoseATK",
+		"name": {
+			"en": "Your monsters lose ATK",
+			"es": "Tus monstruos pierden ATK"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "OpponentMonstersLoseDEF",
+		"name": {
+			"en": "Your opponent's monsters lose DEF",
+			"es": "Los monstruos del adversario pierden DEF"
+		}
+	},
+	{
+		"type": "stats",
+		"abbreviation": "AllMonstersLoseDEF",
+		"name": {
+			"en": "All monsters lose DEF",
+			"es": "Todos los monstruos pierden DEF"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "DestroysPlayerCards",
+		"name": {
+			"en": "Destroys your cards",
+			"es": "Destruye tus cartas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "DestroysOpponentCards",
+		"name": {
+			"en": "Destroys your opponent's cards",
+			"es": "Destruye las cartas del adversario"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "DestroysPlayerMonsters",
+		"name": {
+			"en": "Destroys your monsters",
+			"es": "Destruye tus monstruos"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "DestroysOpponentMonsters",
+		"name": {
+			"en": "Destroys your opponent's monsters",
+			"es": "Destruye los monstruos del adversario"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "DestroysItself",
+		"name": {
+			"en": "Destroys itself",
+			"es": "Se destruye a si mismo"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "DestroysPlayerSpells",
+		"name": {
+			"en": "Destroys your Spell Cards",
+			"es": "Destruye tus Cartas Mágicas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "DestroysOpponentSpells",
+		"name": {
+			"en": "Destroys your opponent's Spell Cards",
+			"es": "Destruye las Cartas Mágicas del adversario"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "DestroysPlayerTraps",
+		"name": {
+			"en": "Destroys your Trap Cards",
+			"es": "Destruye tus Cartas de Trampa"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "DestroysOpponentTraps",
+		"name": {
+			"en": "Destroys your opponent's Trap Cards",
+			"es": "Destruye las Cartas de Trampa del adversario"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "ThisCardCannotBeDestroyedByCardEffects",
+		"name": {
+			"en": "Cannot be destroyed by card effects",
+			"es": "No puede ser destruido por efectos de cartas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PlayerCardsCannotBeDestroyedByCardEffects",
+		"name": {
+			"en": "Prevents your cards from being destroyed by card effects",
+			"es": "Previene que tus cartas sean destruidas por efectos de cartas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PlayerMonstersCannotBeDestroyedByCardEffects",
+		"name": {
+			"en": "Prevents your monsters from being destroyed by card effects",
+			"es": "Previene que tus monstruos sean destruidos por efectos de cartas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PlayerSpellsCannotBeDestroyedByCardEffects",
+		"name": {
+			"en": "Prevents your Spell Cards from being destroyed by card effects",
+			"es": "Previene que tus Cartas Mágicas sean destruidas por efectos de cartas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PlayerTrapsCannotBeDestroyedByCardEffects",
+		"name": {
+			"en": "Prevents your Trap Cards from being destroyed by card effects",
+			"es": "Previene que tus Cartas de Trampa sean destruidas por efectos de cartas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "ThisCardCannotBeDestroyedByMonsterEffects",
+		"name": {
+			"en": "Cannot be destroyed by monster effects",
+			"es": "No puede ser destruido por efectos de monstruos"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PlayerMonstersCannotBeDestroyedByMonsterEffects",
+		"name": {
+			"en": "Prevents your monsters from being destroyed by monster effects",
+			"es": "Previene que tus monstruos sean destruidos por efectos de monstruos"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "ThisCardCannotBeDestroyedBySpellCardEffects",
+		"name": {
+			"en": "Cannot be destroyed by Spell Card effects",
+			"es": "No puede ser destruido por efectos de Cartas Mágicas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PlayerMonstersCannotBeDestroyedBySpellCardEffects",
+		"name": {
+			"en": "Prevents your monsters from being destroyed by Spell Card effects",
+			"es": "Previene que tus monstruos sean destruidos por efectos de Cartas Mágicas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "ThisCardCannotBeDestroyedByTrapCardEffects",
+		"name": {
+			"en": "Cannot be destroyed by Trap Card effects",
+			"es": "No puede ser destruido por efectos de Cartas de Trampa"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PlayerMonstersCannotBeDestroyedByTrapCardEffects",
+		"name": {
+			"en": "Prevents your monsters from being destroyed by Trap Card effects",
+			"es": "Previene que tus monstruos sean destruidos por efectos de Cartas de Trampa"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsReturningMonstersFromPlayerFieldToHand",
+		"name": {
+			"en": "Prevents returning monsters from your field to hand",
+			"es": "Previene que los monstruos en tu Campo sean devueltos a la mano"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsReturningMonstersFromPlayerFieldToDeck",
+		"name": {
+			"en": "Prevents returning monsters from your field to Deck",
+			"es": "Previene que los monstruos en tu Campo sean devueltos al Deck"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsReturningMonstersFromPlayerFieldToExtraDeck",
+		"name": {
+			"en": "Prevents returning monsters from your field to Extra Deck",
+			"es": "Previene que los monstruos en tu Campo sean devueltos al Deck Extra"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsReturningSpellsFromPlayerFieldToHand",
+		"name": {
+			"en": "Prevents returning Spell Cards from your field to hand",
+			"es": "Previene que las Cartas Mágicas en tu Campo sean devueltas a la mano"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsReturningSpellsFromPlayerFieldToDeck",
+		"name": {
+			"en": "Prevents returning Spell Cards from your field to Deck",
+			"es": "Previene que las Cartas Mágicas en tu Campo sean devueltas al Deck"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsReturningSpellsFromPlayerFieldToExtraDeck",
+		"name": {
+			"en": "Prevents returning Spell Cards from your field to Extra Deck",
+			"es": "Previene que las Cartas Mágicas en tu Campo sean devueltas al Deck Extra"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsReturningTrapsFromPlayerFieldToHand",
+		"name": {
+			"en": "Prevents returning Trap Cards from your field to hand",
+			"es": "Previene que las Cartas de Trampa en tu Campo sean devueltas a la mano"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsReturningTrapsFromPlayerFieldToDeck",
+		"name": {
+			"en": "Prevents returning Trap Cards from your field to Deck",
+			"es": "Previene que las Cartas de Trampa en tu Campo sean devueltas al Deck"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsReturningTrapsFromPlayerFieldToExtraDeck",
+		"name": {
+			"en": "Prevents returning Trap Cards from your field to Extra Deck",
+			"es": "Previene que las Cartas de Trampa en tu Campo sean devueltas al Deck Extra"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsActivationOfMonsterEffects",
+		"name": {
+			"en": "Prevents activation of your Effect Monsters",
+			"es": "Previene la activación de tus Monstruos de Efecto"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsActivationOfOpponentMonsterEffects",
+		"name": {
+			"en": "Prevents activation of your opponent's Effect Monsters",
+			"es": "Previene la activación de los Monstruos de Efecto del adversario"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsActivationOfSpellCards",
+		"name": {
+			"en": "Prevents activation of your Spell Cards",
+			"es": "Previene la activación de tus Cartas Mágicas"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsOpponentActivationOfSpellCards",
+		"name": {
+			"en": "Prevents activation of your opponent's Spell Cards",
+			"es": "Previene la activación de las Cartas Mágicas del adversario"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsOpponentActivationOfTrapCards",
+		"name": {
+			"en": "Prevents activation of your opponent's Trap Cards",
+			"es": "Previene la activación de las Cartas de Trampa del adversario"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "PreventsOpponentActivationOfFacedDownSpellTrapCards",
+		"name": {
+			"en": "Prevents activation of your opponent's face-down Spell/Trap Cards",
+			"es": "Previene la activación de las Cartas Mágicas/de Trampa boca abajo del adversario"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "NegatesTrapCardsEffects",
+		"name": {
+			"en": "Negates the effects of your Trap Cards",
+			"es": "Niega los efectos de tus Cartas de Trampa"
+		}
+	},
+	{
+		"type": "cards",
+		"abbreviation": "NegatesOpponentTrapCardsEffects",
+		"name": {
+			"en": "Negates the effects of your opponent's Trap Cards",
+			"es": "Niega los efectos de las Cartas de Trampa del adversario"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "NormalSummonNoTributes",
+		"name": {
+			"en": "Normal Summon monsters without Tribute",
+			"es": "Invocar de Modo Normal monstruos sin Sacrificar"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "NormalSummonThisCardNoTributes",
+		"name": {
+			"en": "Normal Summon this card without Tribute",
+			"es": "Invocar de Modo Normal esta carta sin Sacrificar"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "NormalSummonOneTribute",
+		"name": {
+			"en": "Normal Summon monsters with 1 Tribute",
+			"es": "Invocar de Modo Normal monstruos con 1 Sacrificio"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "NormalSummonThisCardOneTribute",
+		"name": {
+			"en": "Normal Summon this card with 1 Tribute",
+			"es": "Invocar de Modo Normal esta carta con 1 Sacrificio"
+		} 
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "NormalSummonThisCardThreeTributes",
+		"name": {
+			"en": "Normal Summon this card with 3 Tributes",
+			"es": "Invocar de Modo Normal esta carta con 3 Sacrificios"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "OpponentSpecialSummons",
+		"name": {
+			"en": "Your opponent Special Summons",
+			"es": "Tu adversario Invoca de Modo Especial"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsExcavated",
+		"name": {
+			"en": "Special Summons excavated monsters",
+			"es": "Invoca de Modo Especial monstruos excavados"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsCopiesOfItself",
+		"name": {
+			"en": "Special Summons copies of itself",
+			"es": "Invoca de Modo Especial copias de sí mismo"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsItselfFromHand",
+		"name": {
+			"en": "Special Summons itself from your hand",
+			"es": "Se Invoca de Modo Especial desde tu mano"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsFromHand",
+		"name": {
+			"en": "Special Summons from your hand",
+			"es": "Invoca de Modo Especial desde tu mano"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsFromHandToOpponentField",
+		"name": {
+			"en": "Special Summons from your hand to your opponent's field",
+			"es": "Invoca de Modo Especial desde tu mano al Campo de tu adversario"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsFromOpponentHandToOpponentField",
+		"name": {
+			"en": "Special Summons from your opponent's hand to your opponent's field",
+			"es": "Invoca de Modo Especial desde la mano de tu adversario a su Campo"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsFromGraveyard",
+		"name": {
+			"en": "Special Summons from your Graveyard",
+			"es": "Invoca de Modo Especial desde tu Cementerio"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsFromOpponentGraveyardToField",
+		"name": {
+			"en": "Special Summons from your opponent's Graveyard to your field",
+			"es": "Invoca de Modo Especial desde el Cementerio de tu adversario a tu Campo"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsFromOpponentGraveyardToOpponentField",
+		"name": {
+			"en": "Special Summons from your opponent's Graveyard to your opponent's field",
+			"es": "Invoca de Modo Especial desde el Cementerio de tu adversario a su Campo"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsItselfFromExtraDeck",
+		"name": {
+			"en": "Special Summons itself from your Extra Deck",
+			"es": "Se Invoca de Modo Especial desde tu Deck Extra"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "SpecialSummonsFromExtraDeck",
+		"name": {
+			"en": "Special Summons from your Extra Deck",
+			"es": "Invoca de Modo Especial desde tu Deck Extra"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "ReducesNumberOfFusionMaterials",
+		"name": {
+			"en": "Reduces required number of Fusion Materials",
+			"es": "Reduce el número requerido de Materiales de Fusión"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PerformsFusionSummon",
+		"name": {
+			"en": "Performs a Fusion Summon",
+			"es": "Realiza una Invocación por Fusión"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PerformsRitualSummon",
+		"name": {
+			"en": "Performs a Ritual Summon",
+			"es": "Realiza una Invocación por Ritual"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "TreatsMonsterAsMultipleTributes",
+		"name": {
+			"en": "Treats a monster as multiple Tributes",
+			"es": "Trata monstruos como múltiples Sacrificios"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "TreatsItselfAsMultipleTributes",
+		"name": {
+			"en": "Treats itself as multiple Tributes",
+			"es": "Se trata como múltiples Sacrificios"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "TreatsItselfAsMultipleFusionMaterials",
+		"name": {
+			"en": "Treats itself as multiple Fusion Materials",
+			"es": "Se trata como múltiples Materiales de Fusión"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "CannotBeSpecialSummoned",
+		"name": {
+			"en": "Cannot be Special Summoned",
+			"es": "No puede ser Invocado de Modo Especial"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "CannotBeSpecialSummonedFromGraveyard",
+		"name": {
+			"en": "Cannot be Special Summoned from the Graveyard",
+			"es": "No puede ser Invocado de Modo Especial desde el Cementerio"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "ThisCardCannotBeTributedForATributeSummon",
+		"name": {
+			"en": "Cannot be Tributed for a Tribute Summon",
+			"es": "No puede ser Sacrificado para una Invocación por Sacrificio"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PlayerMonstersCannotBeTributedForATributeSummon",
+		"name": {
+			"en": "Prevents your monsters from being Tributed for a Tribute Summon",
+			"es": "Previene que tus monstruos puedan ser Sacrificados para una Invocación por Sacrificio"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "OpponentMonstersCannotBeTributedForATributeSummon",
+		"name": {
+			"en": "Prevents your opponent's monsters being Tributed for a Tribute Summon",
+			"es": "Previene que los monstruos del adversario puedan ser Sacrificados para una Invocación por Sacrificio"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PlayerMonstersCannotBeUsedAsFusionMaterial",
+		"name": {
+			"en": "Prevents your monsters being used as a Fusion Material",
+			"es": "Previene que tus monstruos puedan ser usados como Materiales de Fusión"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PreventsNormalSummons",
+		"name": {
+			"en": "Prevents Normal Summons",
+			"es": "Previene Invocaciones Normales"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PreventsSets",
+		"name": {
+			"en": "Prevents Sets",
+			"es": "Previene Colocaciones"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PreventsTributeSummons",
+		"name": {
+			"en": "Prevents Tribute Summons",
+			"es": "Previene Invocaciones por Sacrificio"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PreventsSpecialSummons",
+		"name": {
+			"en": "Prevents Special Summons",
+			"es": "Previene Invocaciones Especiales"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PreventsSpecialSummonsFromTheHand",
+		"name": {
+			"en": "Prevents Special Summons from the hand",
+			"es": "Previene Invocaciones Especiales desde la mano"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PreventsSpecialSummonsFromTheGraveyard",
+		"name": {
+			"en": "Prevents Special Summons from the Graveyard",
+			"es": "Previene Invocaciones Especiales desde el Cementerio"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "PreventsSpecialSummonsFromTheExtraDeck",
+		"name": {
+			"en": "Prevents Special Summons from the Extra Deck",
+			"es": "Previene Invocaciones Especiales desde el Deck Extra"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "RestrictsTributeSummonsToSpecificLevel",
+		"name": {
+			"en": "Restricts Tribute Summons to Level specific monsters",
+			"es": "Restringe las Invocaciones por Sacrificio a monstruos de Nivel específico"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "RestrictsSpecialSummonsToSpecificCards",
+		"name": {
+			"en": "Restricts Special Summons to specific cards",
+			"es": "Restringe las Invocaciones Especiales a cartas específicas"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "RestrictsSpecialSummonsToSpecificAttribute",
+		"name": {
+			"en": "Restricts Special Summons to Attribute specific monsters",
+			"es": "Restringe las Invocaciones Especiales a monstruos de Atributo específico"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "RestrictsSpecialSummonsToSpecificLevel",
+		"name": {
+			"en": "Restricts Special Summons to Level specific monsters",
+			"es": "Restringe las Invocaciones Especiales a monstruos de Nivel específico"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "RestrictsSpecialSummonsToSpecificType",
+		"name": {
+			"en": "Restricts Special Summons to Type specific monsters",
+			"es": "Restringe las Invocaciones Especiales a monstruos de Tipo específico"
+		}
+	},
+	{
+		"type": "summoning",
+		"abbreviation": "RestrictsSpecialSummonsToSpecificBattlePosition",
+		"name": {
+			"en": "Restricts Special Summons to specific battle position",
+			"es": "Restringe las Invocaciones Especiales a una posición de batalla específica"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "MultipleAttacker",
+		"name": {
+			"en": "Can make multiple attacks",
+			"es": "Puede hacer múltiples ataques"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "CanMakeMultipleAttacksOnMonsters",
+		"name": {
+			"en": "Can make multiple attacks on monsters",
+			"es": "Puede hacer múltiples ataques a monstruos"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "AllowsMultipleAttacksOnMonsters",
+		"name": {
+			"en": "Your monsters can make multiple attacks on monsters",
+			"es": "Tus monstruos pueden hacer múltiples ataques a monstruos"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "InflictsPiercingDamage",
+		"name": {
+			"en": "Inflicts piercing damage",
+			"es": "Inflige daño de penetración"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "AllowsPiercingDamage",
+		"name": {
+			"en": "Your monsters inflicts piercing damage",
+			"es": "Tus monstruos infligen daño de penetración"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "CanAttackDirectly",
+		"name": {
+			"en": "Can attack directly",
+			"es": "Puede atacar directamente"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "AllowsDirectAttacks",
+		"name": {
+			"en": "Your monsters can attack directly",
+			"es": "Tus monstruos pueden atacar directamente"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "ThisCardCannotBeDestroyedByBattle",
+		"name": {
+			"en": "Cannot be destroyed by battle",
+			"es": "No puede ser destruido en batalla"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "PlayerMonstersCannotBeDestroyedByBattle",
+		"name": {
+			"en": "Prevents your monsters from being destroyed by battle",
+			"es": "Previene que tus monstruos sean destruidos en batalla"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "NegatesAttacks",
+		"name": {
+			"en": "Negates attacks",
+			"es": "Niega ataques"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "PreventsOpponentMonsterFromAttacking",
+		"name": {
+			"en": "Prevents your opponent's monsters from attacking",
+			"es": "Previene que los monstruos del adversario ataquen"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "CanOnlyAttackCertainMonsters",
+		"name": {
+			"en": "Can only attack with certain monsters",
+			"es": "Solo puedes atacar con ciertos monstruos"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "CannotAttackDirectly",
+		"name": {
+			"en": "Cannot attack directly",
+			"es": "No puede atacar directamente"
+		}
+	},
+	{
+		"type": "attack",
+		"abbreviation": "PreventsDirectAttacks",
+		"name": {
+			"en": "Prevents direct attacks",
+			"es": "Previene ataques directos"
+		}
+	},
+	{
+		"type": "lp",
+		"abbreviation": "PaysLifePoints",
+		"name": {
+			"en": "Pays Life Points",
+			"es": "Paga Life Points"
+		}
+	},
+	{
+		"type": "lp",
+		"abbreviation": "PlayerGainLifePoints",
+		"name": {
+			"en": "You gain Life Points",
+			"es": "Ganas Life Points"
+		}
+	},
+	{
+		"type": "lp",
+		"abbreviation": "OpponentGainLifePoints",
+		"name": {
+			"en": "Your opponent gains Life Points",
+			"es": "Tu adversario gana Life Points"
+		}
+	},
+	{
+		"type": "lp",
+		"abbreviation": "InflictsDamagePlayer",
+		"name": {
+			"en": "Damages you",
+			"es": "Te hace daño"
+		}
+	},
+	{
+		"type": "lp",
+		"abbreviation": "InflictsDamageOpponent",
+		"name": {
+			"en": "Damages your opponent",
+			"es": "Hace daño a tu adversario"
+		}
+	},
+	{
+		"type": "lp",
+		"abbreviation": "PreventsBattleDamage",
+		"name": {
+			"en": "Prevents battle damage",
+			"es": "Previene el daño por batalla"
+		}
+	},
+	{
+		"type": "lp",
+		"abbreviation": "PreventsEffectDamage",
+		"name": {
+			"en": "Prevents effect damage",
+			"es": "Previene el daño por efecto"
+		}
+	},
+	{
+		"type": "miscellaneous",
+		"abbreviation": "TurnLimitedEffect",
+		"name": {
+			"en": "Turn limited effect",
+			"es": "Efecto limitado por turno"
+		}
+	},
+	{
+		"type": "miscellaneous",
+		"abbreviation": "OncePerTurn",
+		"name": {
+			"en": "Only once per turn",
+			"es": "Solo una vez por turno"
+		}
+	}
+]
