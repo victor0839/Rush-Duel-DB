@@ -499,7 +499,7 @@ function generateCardSearchFilters(resetFilters = true) {
 
         if ('properties' in card) {
             for (property of card.properties) {
-                if (!propertiesList.includes(property) && property != 'LegendCard') {
+                if (!propertiesList.includes(property)) {
                     propertiesList.push(property);
                 }
             }
@@ -1455,9 +1455,9 @@ function checkFilters(card, filterList, buttonFilterList, textFilterList, select
 
             $.each(searchOptions['filterButton'].type, function (type, value) {
                 if (type == 'Legend') {
-                    if (value == 1 && ('properties' in card && card.properties.includes('LegendCard'))) {
+                    if (value == 1 && ('legend' in card && card.legend)) {
                         matched++;
-                    } else if (value == 2 && (!('properties' in card) || !card.properties.includes('LegendCard'))) {
+                    } else if (value == 2 && (!('legend' in card) || !card.legend)) {
                         matched++;
                     }
                 } else  if (card.hasOwnProperty('subtype')) {
@@ -1490,16 +1490,16 @@ function checkFilters(card, filterList, buttonFilterList, textFilterList, select
                 }
 
                 if (!filterActive && searchOptions['filterButton'].type.Legend == 1) {
-                    if (!('properties' in card) || !card.properties.includes('LegendCard')) {
+                    if (!('legend' in card) || !card.legend) {
                         return false;
                     }
                 } else if (filterActive && filter == 0 && subtype == 0) {
-                    if (searchOptions['filterButton'].type.Legend == 1 && 'properties' in card && card.properties.includes('LegendCard')) {
+                    if (searchOptions['filterButton'].type.Legend == 1 && 'legend' in card && card.legend) {
                         continue;
                     }
 
                     return false;
-                } else if (filter == 2 || subtype == 2 || (searchOptions['filterButton'].type.Legend == 2 && 'properties' in card && card.properties.includes('LegendCard'))) {
+                } else if (filter == 2 || subtype == 2 || (searchOptions['filterButton'].type.Legend == 2 && 'legend' in card && card.legend)) {
                     return false;
                 }
             } else {
@@ -1901,7 +1901,7 @@ function generateSearchedCard(card, rarities = []) {
         }
     }
 
-    if ('properties' in card && card.properties.includes('LegendCard')) {
+    if ('legend' in card && card.legend) {
         legendBadge = `<span class="badge legend-badge text-dark py-0 ms-1">${getLocalizedString('status', 'Legend')}</span>`;
     }
 
@@ -2222,7 +2222,7 @@ function renderCardData() {
     });
 
     //show legend badge
-    if ('properties' in currentCard && currentCard.properties.includes('LegendCard')) {
+    if ('legend' in currentCard && currentCard.legend) {
         $('#card-legend-status-badge').show();
     } else {
         $('#card-legend-status-badge').hide();
@@ -2359,6 +2359,14 @@ function renderCardRelatedInfo() {
     }
 
     $('.rarity-tooltip').tooltip('dispose').tooltip({title: getTooltipTitle, html: true, placement: 'top'});
+
+    if (currentCard.legend) {
+        if (!('properties' in currentCard)) {
+            currentCard.properties = [];
+        }
+
+        currentCard.properties.push('LegendCard');
+    }
 
     //generate related cards
     $.each(cardCategories, function (key, sections) {

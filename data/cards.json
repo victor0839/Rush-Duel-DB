@@ -406,6 +406,7 @@
         "cardType": "Monster",
         "type": "Normal",
         "attribute": "LIGHT",
+        "legend": true,
         "level": 8,
         "atk": 3000,
         "def": 2500,
@@ -487,7 +488,6 @@
             }
         ],
         "properties": [
-            "LegendCard",
             "NonEffect"
         ]
     },
@@ -671,6 +671,7 @@
         "cardType": "Monster",
         "type": "Normal",
         "attribute": "DARK",
+        "legend": true,
         "level": 7,
         "atk": 2400,
         "def": 2000,
@@ -757,7 +758,6 @@
             }
         ],
         "properties": [
-            "LegendCard",
             "NonEffect"
         ]
     },
@@ -772,6 +772,7 @@
         "cardType": "Monster",
         "type": "Normal",
         "attribute": "DARK",
+        "legend": true,
         "level": 7,
         "atk": 2500,
         "def": 2100,
@@ -860,7 +861,6 @@
             }
         ],
         "properties": [
-            "LegendCard",
             "NonEffect"
         ]
     },
@@ -1579,6 +1579,7 @@
         },
         "cardType": "Spell",
         "type": "Normal",
+        "legend": true,
         "cardText": {
             "en": {
                 "official": "<b>[REQUIREMENT]</b> None\n<b>[EFFECT]</b> Special Summon 1 monster from either Graveyard face-up to your field."
@@ -1639,9 +1640,6 @@
             {
                 "normal": true
             }
-        ],
-        "properties": [
-            "LegendCard"
         ]
     },
     {
@@ -2131,6 +2129,7 @@
         },
         "cardType": "Trap",
         "type": "Normal",
+        "legend": true,
         "cardText": {
             "en": {
                 "official": "<b>[REQUIREMENT]</b> When an opponent's monster declares an attack.\n<b>[EFFECT]</b> Destroy all Attack Position monsters on your opponent's field."
@@ -2184,9 +2183,6 @@
             {
                 "normal": true
             }
-        ],
-        "properties": [
-            "LegendCard"
         ]
     },
     {
@@ -3993,6 +3989,7 @@
         },
         "cardType": "Spell",
         "type": "Normal",
+        "legend": true,
         "cardText": {
             "en": {
                 "official": "<b>[REQUIREMENT]</b> None\n<b>[EFFECT]</b> Destroy all monsters on the field."
@@ -4060,9 +4057,6 @@
                 "normal": true,
                 "ORR": true
             }
-        ],
-        "properties": [
-            "LegendCard"
         ]
     },
     {
@@ -6078,6 +6072,7 @@
         },
         "cardType": "Trap",
         "type": "Normal",
+        "legend": true,
         "cardText": {
             "en": {
                 "official": "<b>[REQUIREMENT]</b> When an opponent's monster declares an attack.\n<b>[EFFECT]</b> Negate the attack. This turn, your opponent cannot declare an attack."
@@ -6146,9 +6141,6 @@
             {
                 "normal": true
             }
-        ],
-        "properties": [
-            "LegendCard"
         ]
     },
     {
@@ -8830,6 +8822,7 @@
         "cardType": "Monster",
         "type": "Effect",
         "attribute": "LIGHT",
+        "legend": true,
         "level": 2,
         "atk": 0,
         "def": 0,
@@ -8880,8 +8873,7 @@
         ],
         "properties": [
             "ATKEqualsDEF",
-            "ContinuousEffect",
-            "LegendCard"
+            "ContinuousEffect"
         ]
     },
     {
@@ -8895,6 +8887,7 @@
         "cardType": "Monster",
         "type": "Effect",
         "attribute": "DARK",
+        "legend": true,
         "level": 6,
         "atk": 2400,
         "def": 1000,
@@ -8977,9 +8970,6 @@
                 "normal": true,
                 "ORR": true
             }
-        ],
-        "properties": [
-            "LegendCard"
         ]
     },
     {
@@ -9297,6 +9287,7 @@
         },
         "cardType": "Spell",
         "type": "Normal",
+        "legend": true,
         "cardText": {
             "en": {
                 "translated": "<b>[REQUIREMENT]</b> During a turn you have not Special Summoned a monster from the Extra Deck.\n<b>[EFFECT]</b> Choose 1 monster on your opponent's field. This turn, if you would Tribute Summon a monster, you can Tribute that opponent's monster instead of 1 monster on your field. You cannot Special Summon monsters from the Extra Deck until the end of this turn."
@@ -9347,9 +9338,6 @@
             {
                 "normal": true
             }
-        ],
-        "properties": [
-            "LegendCard"
         ]
     },
     {
