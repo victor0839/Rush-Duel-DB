@@ -1152,7 +1152,7 @@ function searchSetFilter(option, value, search = true) {
     }
 }
 
-function searchSetFilterButton(option, value, withExclude = true, search = true) {
+function searchSetFilterButton(option, value, search = true) {
     if (value != null) {
         switch(searchOptions['filterButton'][option][value]) {
             case 0:
@@ -1258,7 +1258,7 @@ function searchSetFilterSelectEffect(option, value, search = true) {
     }
 }
 
-function getFilterList(options) {
+function getFilterList(options = searchOptions['filter']) {
     var filterList = [];
 
     $.each(options, function(i, el) {
@@ -1277,7 +1277,26 @@ function getFilterList(options) {
     return filterList;
 }
 
-function getFilterTextList(options) {
+function getFilterButtonList(options = searchOptions['filterButton']) {
+    var buttonFilterList = [];
+
+    $.each(options, function(i, el) {
+        let allFalse = true, allTrue = true;
+        
+        $.each(el, function(i2, el2) {
+            allFalse = (allFalse && el2 == 0);
+            allTrue = allTrue && el2 == 1;
+        });
+
+        if (!(allFalse || allTrue)) {
+            buttonFilterList.push(i);
+        }
+    });
+
+    return buttonFilterList;
+}
+
+function getFilterTextList(options = searchOptions['filterText']) {
     var startDateString = '';
     var endDateString = '';
     var minAtk = '';
@@ -1626,9 +1645,9 @@ function checkFilters(card, filterList, buttonFilterList, textFilterList, select
 var searchedCards = [];
 
 function loadCardSearchList(updateSortFilter = false, resetPaginator = true) {
-    const filterList = getFilterList(searchOptions['filter']);
-    const buttonFilterList = getFilterList(searchOptions['filterButton']);
-    const textFilterList = getFilterTextList(searchOptions['filterText']);
+    const filterList = getFilterList();
+    const buttonFilterList = getFilterButtonList();
+    const textFilterList = getFilterTextList();
     const selectFilterList = [];
     const effectFilterList = [];
     var typeFilterCount = 0;
@@ -1641,7 +1660,7 @@ function loadCardSearchList(updateSortFilter = false, resetPaginator = true) {
 
     if (typeRadio == 'all') {
         $.each(searchOptions['filterButton'].type, function (type, value) {
-            if (value == 1 || value == 2) {
+            if (value == 1) {
                 typeFilterCount++;
             }
         });
@@ -2584,15 +2603,15 @@ function renderSearchCategory(container, category, property) {
 function getFormatString(group, string, optionalGroup = null) {
     if ((userLang == 'es' && optionalGroup != 'cardType') || (userLang != 'es' && optionalGroup == 'cardType')) {
         if (optionalGroup) {
-            return `${getLocalizedString('effectString', group)} ${getLocalizedString(optionalGroup, string)}`;
+            return `${getLocalizedString('effectString', capitalizeFirstLetter(group))} ${getLocalizedString(optionalGroup, string)}`;
         } else {
-            return `${getLocalizedString('effectString', group)} ${getLocalizedString(group, string)}`;
+            return `${getLocalizedString('effectString', capitalizeFirstLetter(group))} ${getLocalizedString(group, string)}`;
         }
     } else {
         if (optionalGroup) {
-            return `${getLocalizedString(optionalGroup, string)} ${getLocalizedString('effectString', group)}`;
+            return `${getLocalizedString(optionalGroup, string)} ${getLocalizedString('effectString', capitalizeFirstLetter(group))}`;
         } else {
-            return `${getLocalizedString(group, string)} ${getLocalizedString('effectString', group)}`;
+            return `${getLocalizedString(group, string)} ${getLocalizedString('effectString', capitalizeFirstLetter(group))}`;
         }
     }
 }
@@ -2605,15 +2624,15 @@ function createStringFromFilter(filter) {
 
     if (cardType.toLowerCase() == 'monster') {
         if ('levels' in filter && filter.levels) {
-            keywords[0] = `${getLocalizedString('effectString', 'level')} ${filter.levels[0]}`;
+            keywords[0] = `${getLocalizedString('effectString', 'Level')} ${filter.levels[0]}`;
 
             switch(filter.levels[1]) {
                 case '>=':
-                    keywords[0] += ` ${getLocalizedString('effectString', 'orHigher')}`;
+                    keywords[0] += ` ${getLocalizedString('effectString', 'OrHigher')}`;
                     break;
 
                 case '<=':
-                    keywords[0] += ` ${getLocalizedString('effectString', 'orLower')}`;
+                    keywords[0] += ` ${getLocalizedString('effectString', 'OrLower')}`;
                     break;
 
                 case '||':
@@ -2714,17 +2733,17 @@ function createStringFromFilter(filter) {
 
         if (userLang == 'es') {
             if ('type' in filter && filter.type) {
-                keywords[3] += `${getLocalizedString('cardTypeShort', 'Monster')} ${getLocalizedString('effectString', toCamelCase(filter.type))}`;
+                keywords[3] += `${getLocalizedString('cardTypeShort', 'Monster')} ${getLocalizedString('effectString', filter.type)}`;
             } else if ('exclude' in filter && 'type' in filter.exclude && filter.exclude.type) {
-                keywords[3] += `${getLocalizedString('cardTypeShort', 'Monster')} ${getLocalizedString('effectConjuction', 'non')}${getLocalizedString('effectString', toCamelCase(filter.type))}`;
+                keywords[3] += `${getLocalizedString('cardTypeShort', 'Monster')} ${getLocalizedString('effectConjuction', 'non')}${getLocalizedString('effectString', filter.type)}`;
             } else {
                 keywords[3] = getLocalizedString('cardTypeShort', 'Monster');
             }
 
             if ('subtype' in filter && filter.subtype) {
-                keywords[3] += ` ${getLocalizedString('effectString', toCamelCase(filter.subtype))}`;
+                keywords[3] += ` ${getLocalizedString('effectString', filter.subtype)}`;
             } else if ('exclude' in filter && 'subtype' in filter.exclude && filter.exclude.subtype) {
-                keywords[3] += ` ${getLocalizedString('effectConjuction', 'non')}${getLocalizedString('effectString', toCamelCase(filter.exclude.subtype))}`;
+                keywords[3] += ` ${getLocalizedString('effectConjuction', 'non')}${getLocalizedString('effectString', filter.exclude.subtype)}`;
             }
         } else {
             if ('subtype' in filter && filter.subtype) {
@@ -2750,23 +2769,23 @@ function createStringFromFilter(filter) {
             keywords[5] = `${getLocalizedString('effectConjuction', 'with')} ${filter.atk[0]}`;
 
             if (userLang != 'es' && filter.atk[2]) {
-                keywords[5] += ` ${getLocalizedString('effectString', 'original')}`;
+                keywords[5] += ` ${getLocalizedString('effectString', 'Original')}`;
             }
 
             switch(filter.atk[1]) {
                 case '>=':
                     if (userLang == 'es') {
-                        keywords[5] += ` ATK ${getLocalizedString('effectString', 'orMore')}`;
+                        keywords[5] += ` ATK ${getLocalizedString('effectString', 'OrMore')}`;
                     } else {
-                        keywords[5] += ` ${getLocalizedString('effectString', 'orMore')} ATK`;
+                        keywords[5] += ` ${getLocalizedString('effectString', 'OrMore')} ATK`;
                     }
                     break;
 
                 case '<=':
                     if (userLang == 'es') {
-                        keywords[5] += ` ATK ${getLocalizedString('effectString', 'orLess')}`;
+                        keywords[5] += ` ATK ${getLocalizedString('effectString', 'OrLess')}`;
                     } else {
-                        keywords[5] += ` ${getLocalizedString('effectString', 'orLess')} ATK`;
+                        keywords[5] += ` ${getLocalizedString('effectString', 'OrLess')} ATK`;
                     }
                     break;
 
@@ -2779,7 +2798,7 @@ function createStringFromFilter(filter) {
                     keywords[5] += ' ATK';
 
                     if (userLang == 'es' && filter.atk[2]) {
-                        keywords[5] += ` ${getLocalizedString('effectString', 'original')}`;
+                        keywords[5] += ` ${getLocalizedString('effectString', 'Original')}`;
                     }
                     break;
             }
@@ -2793,23 +2812,23 @@ function createStringFromFilter(filter) {
             }
 
             if (userLang != 'es' && filter.def[2]) {
-                keywords[6] += ` ${getLocalizedString('effectString', 'original')}`;
+                keywords[6] += ` ${getLocalizedString('effectString', 'Original')}`;
             }
 
             switch(filter.def[1]) {
                 case '>=':
                     if (userLang == 'es') {
-                        keywords[6] += ` DEF ${getLocalizedString('effectString', 'orMore')}`;
+                        keywords[6] += ` DEF ${getLocalizedString('effectString', 'OrMore')}`;
                     } else {
-                        keywords[6] += ` ${getLocalizedString('effectString', 'orMore')} DEF`;
+                        keywords[6] += ` ${getLocalizedString('effectString', 'OrMore')} DEF`;
                     }
                     break;
 
                 case '<=':
                     if (userLang == 'es') {
-                        keywords[6] += ` DEF ${getLocalizedString('effectString', 'orLess')}`;
+                        keywords[6] += ` DEF ${getLocalizedString('effectString', 'OrLess')}`;
                     } else {
-                        keywords[6] += ` ${getLocalizedString('effectString', 'orLess')} DEF`;
+                        keywords[6] += ` ${getLocalizedString('effectString', 'OrLess')} DEF`;
                     }
                     break;
 
@@ -2830,7 +2849,7 @@ function createStringFromFilter(filter) {
                     keywords[6] += ' DEF';
 
                     if (userLang == 'es' && filter.def[2]) {
-                        keywords[6] += ` ${getLocalizedString('effectString', 'original')}`;
+                        keywords[6] += ` ${getLocalizedString('effectString', 'Original')}`;
                     }
                     break;
             }
