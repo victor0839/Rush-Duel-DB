@@ -119,6 +119,10 @@ let searchOptions = {
             'Spell': false,
             'Trap': false,
         },
+        'legend': {
+            'Normal': false,
+            'LegendCard': false,
+        },
     },
     'filterButton': {
         'attribute': {
@@ -137,7 +141,6 @@ let searchOptions = {
             'Maximum': 0,
             'Normal': 0,
             'Ritual': 0,
-            'Legend': 0,
         },
         'race': {},
         'level': {}
@@ -1459,7 +1462,13 @@ function checkFilters(card, filterList, buttonFilterList, textFilterList, select
     }
 
     for (let i = 0; i < filterList.length; i++) {
-        if (!searchOptions['filter'][filterList[i]][card[filterList[i]]]) {
+        if (filterList[i] == 'legend') {
+            if (searchOptions['filter']['legend']['Normal'] && ('legend' in card && card.legend)) {
+                return false;
+            } else if (searchOptions['filter']['legend']['LegendCard'] && (!('legend' in card) || !card.legend)) {
+                return false;
+            }
+        } else if (!searchOptions['filter'][filterList[i]][card[filterList[i]]]) {
             return false;
         }
     }
@@ -1473,13 +1482,7 @@ function checkFilters(card, filterList, buttonFilterList, textFilterList, select
             var matched = 0;
 
             $.each(searchOptions['filterButton'].type, function (type, value) {
-                if (type == 'Legend') {
-                    if (value == 1 && ('legend' in card && card.legend)) {
-                        matched++;
-                    } else if (value == 2 && (!('legend' in card) || !card.legend)) {
-                        matched++;
-                    }
-                } else  if (card.hasOwnProperty('subtype')) {
+                if (card.hasOwnProperty('subtype')) {
                     if (value == 1 && (card.type === type || card.subtype === type)) {
                         matched++;
                     } else if (value == 2 && !(card.type === type || card.subtype === type)) {
@@ -1508,17 +1511,9 @@ function checkFilters(card, filterList, buttonFilterList, textFilterList, select
                     subtype = searchOptions['filterButton'][buttonFilterList[i]][card.subtype];
                 }
 
-                if (!filterActive && searchOptions['filterButton'].type.Legend == 1) {
-                    if (!('legend' in card) || !card.legend) {
-                        return false;
-                    }
-                } else if (filterActive && filter == 0 && subtype == 0) {
-                    if (searchOptions['filterButton'].type.Legend == 1 && 'legend' in card && card.legend) {
-                        continue;
-                    }
-
+                if (filterActive && filter == 0 && subtype == 0) {
                     return false;
-                } else if (filter == 2 || subtype == 2 || (searchOptions['filterButton'].type.Legend == 2 && 'legend' in card && card.legend)) {
+                } else if (filter == 2 || subtype == 2) {
                     return false;
                 }
             } else {
@@ -3024,6 +3019,10 @@ function loadCardFilter(property, index) {
         });
     }
 
+    if ('legend' in filter && filter.legend) {
+        searchOptions['filter']['legend']['LegendCard'] = true;
+    }
+
     if ('races' in filter && filter.races) {
         filter.races.forEach(race => {
             searchOptions['filterButton']['race'][race] = 1;
@@ -3043,6 +3042,10 @@ function loadCardFilter(property, index) {
             filter.exclude.attributes.forEach(attribute => {
                 searchOptions['filterButton']['attribute'][attribute] = 2;
             });
+        }
+
+        if ('legend' in filter.exclude) {
+            searchOptions['filter']['legend']['Normal'] = true;
         }
 
         if ('races' in filter.exclude) {
